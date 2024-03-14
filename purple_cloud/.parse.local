@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Purple": {
+      "applicationId": "6CG5d345xurtrv4RuCflZTXgLCmA03p95ARYKdGt"
+    },
+    "_default": {
+      "link": "Purple"
+    }
+  }
+}
