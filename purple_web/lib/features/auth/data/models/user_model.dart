@@ -1,19 +1,16 @@
-import 'package:purple_web/features/auth/domain/entities/user.dart';
+import 'package:json_annotation/json_annotation.dart';
+import '../../../../lib.dart';
+part 'user_model.g.dart';
 
+@JsonSerializable()
 class UserModel extends User {
   const UserModel({
-    required super.id,
-    required super.name,
+    required super.username,
     required super.email,
-    required super.password,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
-      id: json['id'],
-      name: json['username'],
-      email: json['email'],
-      password: json['password'],
-    );
-  }
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }
