@@ -1,6 +1,8 @@
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
-import '../../lib.dart';
+import '../lib.dart';
+
+const String APP_NAME = 'Purple';
 
 ///
 /// Provides a static access to a singleton that implements [Navigation]

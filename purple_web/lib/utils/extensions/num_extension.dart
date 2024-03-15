@@ -1,4 +1,4 @@
-import '../../../lib.dart';
+import '../../lib.dart';
 
 extension NumExtension on num {
   double get toResponsiveHeight {

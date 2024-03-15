@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-const double _defaultHeight = 844.0;
-const double _defaultWidth = 390.0;
+///
+/// Considering the default screen size of 1600x2560
+///
+const double _defaultHeight = 2560.0;
+const double _defaultWidth = 1600.0;
 
 abstract class IAdaptativeSizer {
   double get screenWidth;
