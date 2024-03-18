@@ -16,6 +16,7 @@ Parse.Cloud.define("sign-up", async (request) => {
     if (request.params.password == null) throw new Parse.Error(400, "Missing password");
     const user = new User();
     user.set("username", request.params.username);
+    user.set("email", request.params.username);
     user.set("password", request.params.password);
     return (await user.signUp(null, { useMasterKey: true }));
 });
