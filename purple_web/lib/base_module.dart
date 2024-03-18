@@ -3,6 +3,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'lib.dart';
 
 class BaseModule extends Module {
+  static const String root = '/';
+  static const String mainPage = '/main';
+
   @override
   void binds(final i) {
     i.add<IHttpClient>(
@@ -19,8 +22,9 @@ class BaseModule extends Module {
   @override
   void routes(final r) {
     r.module(
-      '/',
+      root,
       module: AuthModule(),
     );
+    r.child(mainPage, child: (final _) => const MainPage());
   }
 }

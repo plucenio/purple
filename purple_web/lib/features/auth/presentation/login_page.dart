@@ -1,6 +1,5 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:purple_web/lib.dart';
 
 class LoginPage extends StatefulWidget {
@@ -37,7 +36,7 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
             viewModel: viewModel,
             listener: (context, state) {
               if (state is SuccessLoginState) {
-                Modular.to.navigate('/');
+                Nav.popAndPushNamed(BaseModule.mainPage);
                 return;
               }
               if (state is LoginErrorState) {
