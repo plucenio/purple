@@ -8,18 +8,21 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    //DM.get<IAdaptativeSizer>().initialize(MediaQuery.of(context).size);
+    DM.get<IAdaptativeSizer>().initialize(MediaQuery.of(context).size);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: APP_NAME,
       theme: ThemeData(
         brightness: Brightness.light,
-        fontFamily: GoogleFonts.catamaran().fontFamily,
+        fontFamily: GoogleFonts.catamaran(
+          color: AppColor.TEXT_COLOR,
+        ).fontFamily,
         appBarTheme: AppBarTheme(
           titleTextStyle: GoogleFonts.catamaran(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: AppColor.TEXT_COLOR),
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: AppColor.TEXT_COLOR,
+          ),
           actionsIconTheme: const IconThemeData(color: AppColor.PRIMARY),
           iconTheme: const IconThemeData(color: AppColor.PRIMARY),
           backgroundColor: AppColor.BG_COLOR,
