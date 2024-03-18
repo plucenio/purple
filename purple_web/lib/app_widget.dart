@@ -18,6 +18,8 @@ class AppWidget extends StatelessWidget {
           color: AppColor.TEXT_COLOR,
         ).fontFamily,
         appBarTheme: AppBarTheme(
+          centerTitle: true,
+          backgroundColor: AppColor.PRIMARY,
           titleTextStyle: GoogleFonts.catamaran(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -25,7 +27,6 @@ class AppWidget extends StatelessWidget {
           ),
           actionsIconTheme: const IconThemeData(color: AppColor.PRIMARY),
           iconTheme: const IconThemeData(color: AppColor.PRIMARY),
-          backgroundColor: AppColor.BG_COLOR,
         ),
         cardTheme: const CardTheme(color: AppColor.BODY_COLOR),
         primaryColor: AppColor.PRIMARY,
