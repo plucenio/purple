@@ -28,9 +28,34 @@ class AppWidget extends StatelessWidget {
           actionsIconTheme: const IconThemeData(color: AppColor.PRIMARY),
           iconTheme: const IconThemeData(color: AppColor.PRIMARY),
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
+            textStyle: MaterialStateProperty.all(
+              GoogleFonts.catamaran(
+                color: AppColor.TEXT_COLOR,
+              ),
+            ),
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all(AppColor.SECONDARY),
+            textStyle: MaterialStateProperty.all(
+              GoogleFonts.catamaran(
+                color: AppColor.TEXT_COLOR,
+              ),
+            ),
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          labelStyle: GoogleFonts.catamaran(
+            color: AppColor.TEXT_COLOR,
+          ),
+        ),
         cardTheme: const CardTheme(color: AppColor.BODY_COLOR),
         primaryColor: AppColor.PRIMARY,
-        highlightColor: AppColor.PRIMARY,
+        highlightColor: AppColor.SECONDARY,
         scaffoldBackgroundColor: AppColor.BG_COLOR,
       ),
       routerConfig: Modular.routerConfig,

@@ -1,6 +1,7 @@
+import 'package:dartz/dartz.dart';
+
 import '../../../../lib.dart';
 
 abstract class IUserRepository {
-  // API methods
-  Future<List<User>> getUser();
+  Future<Either<Failure, User>> login({required User user});
 }

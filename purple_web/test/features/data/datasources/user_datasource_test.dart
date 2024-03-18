@@ -24,7 +24,8 @@ void main() {
     //when(dio.get<List<dynamic>>(any)).thenAnswer((_) async => httpResponse);
 
     // act
-    final result = await datasource.getUsers();
+    final result = await datasource.login(
+        user: const UserModel(username: 'email', password: 'password'));
 
     // assert
     expect(result, null);
