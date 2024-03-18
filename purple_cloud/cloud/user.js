@@ -10,3 +10,14 @@ Parse.Cloud.define("list-users", async (request) => {
         };
     });
 });
+
+Parse.Cloud.define("get-user", async (request) => {
+    if (request.params.username != null) {
+        const query = new Parse.Query(User);
+        query.equalTo("username", request.params.username);
+        return (await query.first({ useMasterKey: true }));
+    }
+    else {
+        throw new Parse.Error(400, "Missing username or password");
+    }
+});
