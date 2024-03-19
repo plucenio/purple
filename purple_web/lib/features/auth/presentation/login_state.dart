@@ -12,7 +12,7 @@ class SuccessLoginState extends LoginState {
   const SuccessLoginState();
 }
 
-class LoginErrorState extends LoginState {
+class ErrorLoginState extends LoginState {
   final String errorMessage;
-  const LoginErrorState({required this.errorMessage});
+  const ErrorLoginState({required this.errorMessage});
 }

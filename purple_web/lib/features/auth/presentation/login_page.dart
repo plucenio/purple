@@ -39,7 +39,7 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                 Nav.pushReplacementNamed(BaseModule.mainPage);
                 return;
               }
-              if (state is LoginErrorState) {
+              if (state is ErrorLoginState) {
                 if (state.errorMessage.isNotEmpty) {
                   context.showSnackBar(ErrorSnackBar(
                     content: Text(state.errorMessage),
@@ -101,27 +101,27 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                               ),
                             ),
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           ElevatedButton(
                               child: const Text('Entrar'),
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
                                   viewModel.login(
-                                    user: User(
+                                    login: Login(
                                       username: _emailController.text,
                                       password: _passwordController.text,
                                     ),
                                   );
                                 }
                               }),
-                          /*const SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           ElevatedButton(
                             onPressed: () async {
-                              //Modular.to.pushNamed(CreateAccountPage.route);
+                              Nav.pushNamed(AuthModule.createAccount);
                             },
                             child: const Text('Criar conta'),
                           ),
-                          const SizedBox(height: 20),
+                          /*const SizedBox(height: 20),
                           ElevatedButton(
                             onPressed: () async {
                               //if (_formKey.currentState!.validate()) {

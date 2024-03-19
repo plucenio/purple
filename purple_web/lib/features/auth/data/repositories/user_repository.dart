@@ -7,11 +7,23 @@ class UserRespository implements IUserRepository {
 
   UserRespository({required this.datasource});
   @override
-  Future<Either<Failure, User>> login({required User user}) async {
+  Future<Either<Failure, String>> login({required Login login}) async {
     try {
-      final loggedUser =
-          await datasource.login(user: UserModel.fromEntity(user));
-      return Right(loggedUser);
+      final logged = await datasource.login(user: LoginModel.fromEntity(login));
+      return Right(logged);
+    } on DioException catch (e) {
+      return Left(ServerFailure(message: e.response?.data['error']));
+    } catch (e) {
+      return Left(ServerFailure(message: 'Ocorreu um erro.'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> createAccount({required User user}) async {
+    try {
+      final newAccount =
+          await datasource.createAccount(user: UserModel.fromEntity(user));
+      return Right(newAccount);
     } on DioException catch (e) {
       return Left(ServerFailure(message: e.response?.data['error']));
     } catch (e) {

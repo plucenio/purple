@@ -12,13 +12,22 @@ Parse.Cloud.define("get-user", async (request) => {
 });
 
 Parse.Cloud.define("sign-up", async (request) => {
+    if (request.params.name == null) throw new Parse.Error(400, "Missing name");
+    if (request.params.email == null) throw new Parse.Error(400, "Missing email");
     if (request.params.username == null) throw new Parse.Error(400, "Missing username");
     if (request.params.password == null) throw new Parse.Error(400, "Missing password");
+    if (request.params.confirmedPassword == null) throw new Parse.Error(400, "Missing password");
+    if (request.params.phone == null) throw new Parse.Error(400, "Missing phone");
+    if (request.params.password != request.params.confirmedPassword) throw new Parse.Error(400, "Passwords don't match");
     const user = new User();
+    user.set("name", request.params.name);
     user.set("username", request.params.username);
     user.set("email", request.params.username);
     user.set("password", request.params.password);
-    return (await user.signUp(null, { useMasterKey: true }));
+    user.set("confirmedPassword", request.params.confirmedPassword);
+    user.set("phone", request.params.phone);
+    await user.signUp(null, { useMasterKey: true });
+    return true;
 });
 
 Parse.Cloud.define("log-in", async (request) => {

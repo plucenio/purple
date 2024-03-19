@@ -1,9 +1,9 @@
-import 'package:dio/dio.dart';
-
 import '../../../../lib.dart';
 
 abstract class IUserDatasource {
-  Future<UserModel> login({required UserModel user});
+  Future<String> login({required LoginModel user});
+
+  Future<bool> createAccount({required UserModel user});
 }
 
 class UserDatasource implements IUserDatasource {
@@ -11,14 +11,20 @@ class UserDatasource implements IUserDatasource {
   const UserDatasource({required this.httpClient});
 
   @override
-  Future<UserModel> login({required UserModel user}) async {
-    final response = await httpClient.post('/log-in',
-        queryParameters: user.toJson(),
-        options: Options(headers: {
-          'X-Parse-Application-Id': APP_ID,
-          'X-Parse-REST-API-Key': API_KEY,
-          'Content-Type': 'application/json',
-        }));
-    return UserModel.fromJson(response.data['result']);
+  Future<String> login({required LoginModel user}) async {
+    final response = await httpClient.post(
+      '/log-in',
+      queryParameters: user.toJson(),
+    );
+    return response.data['result']['sessionToken'];
+  }
+
+  @override
+  Future<bool> createAccount({required UserModel user}) async {
+    final response = await httpClient.post(
+      '/sign-up',
+      queryParameters: user.toJson(),
+    );
+    return response.data['result'];
   }
 }

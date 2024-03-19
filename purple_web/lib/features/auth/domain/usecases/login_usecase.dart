@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:purple_web/lib.dart';
 
 abstract class ILoginUsecase {
-  Future<Either<Failure, User>> login({required User user});
+  Future<Either<Failure, String>> call({required Login login});
 }
 
 class LoginUsecase implements ILoginUsecase {
@@ -10,7 +10,7 @@ class LoginUsecase implements ILoginUsecase {
   const LoginUsecase({required this.repository});
 
   @override
-  Future<Either<Failure, User>> login({required User user}) async {
-    return repository.login(user: user);
+  Future<Either<Failure, String>> call({required Login login}) async {
+    return repository.login(login: login);
   }
 }

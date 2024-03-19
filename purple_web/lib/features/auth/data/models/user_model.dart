@@ -5,8 +5,12 @@ part 'user_model.g.dart';
 @JsonSerializable()
 class UserModel extends User {
   const UserModel({
+    required super.name,
     required super.username,
-    super.password,
+    required super.password,
+    required super.confirmedPassword,
+    required super.email,
+    required super.phone,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
@@ -16,8 +20,12 @@ class UserModel extends User {
 
   factory UserModel.fromEntity(User user) {
     return UserModel(
+      name: user.name,
       username: user.username,
       password: user.password,
+      confirmedPassword: user.confirmedPassword,
+      email: user.email,
+      phone: user.phone,
     );
   }
 }

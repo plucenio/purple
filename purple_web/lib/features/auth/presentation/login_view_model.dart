@@ -4,10 +4,10 @@ class LoginViewmodel extends ViewModel<LoginState> {
   final ILoginUsecase usecase;
   LoginViewmodel({required this.usecase}) : super(const LoginState());
 
-  void login({required User user}) async {
-    final loggedUser = await usecase.login(user: user);
+  void login({required Login login}) async {
+    final loggedUser = await usecase.call(login: login);
     final newState = loggedUser.fold(
-        (l) => LoginErrorState(errorMessage: l.message),
+        (l) => ErrorLoginState(errorMessage: l.message),
         (r) => const SuccessLoginState());
     emit(newState);
   }

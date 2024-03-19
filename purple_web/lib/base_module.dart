@@ -10,9 +10,17 @@ class BaseModule extends Module {
   void binds(final i) {
     i.add<IHttpClient>(
       () => HttpClient(
-          dio: Dio(
-        BaseOptions(baseUrl: BASE_URL),
-      )),
+        dio: Dio(
+          BaseOptions(
+            baseUrl: BASE_URL,
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Parse-Application-Id': APP_ID,
+              'X-Parse-REST-API-Key': API_KEY,
+            },
+          ),
+        ),
+      ),
     );
     i.addSingleton<IAdaptativeSizer>(
       AdaptativeSizer.instance,

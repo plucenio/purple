@@ -25,7 +25,7 @@ void main() {
 
     // act
     final result = await datasource.login(
-        user: const UserModel(username: 'email', password: 'password'));
+        user: const LoginModel(username: 'email', password: 'password'));
 
     // assert
     expect(result, null);
