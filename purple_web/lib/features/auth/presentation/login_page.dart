@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:purple_web/lib.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,29 +28,30 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
         title: const Text(APP_NAME),
       ),
       body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Flexible(
             flex: 2,
-            child: Container(),
+            child: Center(child: Lottie.asset('assets/pilates.json')),
           ),
-          ViewModelConsumer(
-            viewModel: viewModel,
-            listener: (context, state) {
-              if (state is SuccessLoginState) {
-                Nav.pushReplacementNamed(BaseModule.mainPage);
-                return;
-              }
-              if (state is ErrorLoginState) {
-                if (state.errorMessage.isNotEmpty) {
-                  context.showSnackBar(ErrorSnackBar(
-                    content: Text(state.errorMessage),
-                  ));
+          Flexible(
+            flex: 1,
+            child: ViewModelConsumer(
+              viewModel: viewModel,
+              listener: (context, state) {
+                if (state is SuccessLoginState) {
+                  Nav.pushReplacementNamed(BaseModule.mainPage);
+                  return;
                 }
-              }
-            },
-            builder: (final context, final state) => Flexible(
-              flex: 1,
-              child: Padding(
+                if (state is ErrorLoginState) {
+                  if (state.errorMessage.isNotEmpty) {
+                    context.showSnackBar(ErrorSnackBar(
+                      content: Text(state.errorMessage),
+                    ));
+                  }
+                }
+              },
+              builder: (final context, final state) => Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
                   decoration: BoxDecoration(
