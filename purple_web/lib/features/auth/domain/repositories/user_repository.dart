@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-
 import '../../../../lib.dart';
 
 abstract class IUserRepository {

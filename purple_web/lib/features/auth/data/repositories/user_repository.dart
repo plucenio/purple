@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-
+import 'package:dio/dio.dart';
 import '../../../../lib.dart';
 
 class UserRespository implements IUserRepository {
@@ -12,8 +12,10 @@ class UserRespository implements IUserRepository {
       final loggedUser =
           await datasource.login(user: UserModel.fromEntity(user));
       return Right(loggedUser);
-    } on Failure catch (e) {
-      return Left(e);
+    } on DioException catch (e) {
+      return Left(ServerFailure(message: e.response?.data['error']));
+    } catch (e) {
+      return Left(ServerFailure(message: 'Ocorreu um erro.'));
     }
   }
 }

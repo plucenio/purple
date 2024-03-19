@@ -36,17 +36,15 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
             viewModel: viewModel,
             listener: (context, state) {
               if (state is SuccessLoginState) {
-                Nav.popAndPushNamed(BaseModule.mainPage);
+                Nav.pushReplacementNamed(BaseModule.mainPage);
                 return;
               }
               if (state is LoginErrorState) {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text(state.errorMessage),
-                  ),
-                );
-                return;
+                if (state.errorMessage.isNotEmpty) {
+                  context.showSnackBar(ErrorSnackBar(
+                    content: Text(state.errorMessage),
+                  ));
+                }
               }
             },
             builder: (final context, final state) => Flexible(

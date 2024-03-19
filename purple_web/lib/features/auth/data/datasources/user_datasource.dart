@@ -16,7 +16,8 @@ class UserDatasource implements IUserDatasource {
         queryParameters: user.toJson(),
         options: Options(headers: {
           'X-Parse-Application-Id': APP_ID,
-          'X-Parse-REST-API-Key': API_KEY
+          'X-Parse-REST-API-Key': API_KEY,
+          'Content-Type': 'application/json',
         }));
     return UserModel.fromJson(response.data['result']);
   }
