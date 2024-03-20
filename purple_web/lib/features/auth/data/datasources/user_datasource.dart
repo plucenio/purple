@@ -1,23 +1,14 @@
 import '../../../../lib.dart';
 
 abstract class IUserDatasource {
-  Future<String> login({required LoginModel user});
-
   Future<bool> createAccount({required UserModel user});
+
+  Future<String> login({required LoginModel user});
 }
 
 class UserDatasource implements IUserDatasource {
   final IHttpClient httpClient;
   const UserDatasource({required this.httpClient});
-
-  @override
-  Future<String> login({required LoginModel user}) async {
-    final response = await httpClient.post(
-      '/log-in',
-      queryParameters: user.toJson(),
-    );
-    return response.data['result']['sessionToken'];
-  }
 
   @override
   Future<bool> createAccount({required UserModel user}) async {
@@ -26,5 +17,14 @@ class UserDatasource implements IUserDatasource {
       queryParameters: user.toJson(),
     );
     return response.data['result'];
+  }
+
+  @override
+  Future<String> login({required LoginModel user}) async {
+    final response = await httpClient.post(
+      '/log-in',
+      queryParameters: user.toJson(),
+    );
+    return response.data['result']['sessionToken'];
   }
 }

@@ -17,13 +17,13 @@ class AuthModule extends Module {
     i.add<IUserRepository>(() => UserRespository(
           datasource: i.get<IUserDatasource>(),
         ));
-    i.add<ILoginUsecase>(
-      () => LoginUsecase(
+    i.add<ICreateAccountUsecase>(
+      () => CreateAccountUsecase(
         repository: i.get<IUserRepository>(),
       ),
     );
-    i.add<ICreateAccountUsecase>(
-      () => CreateAccountUsecase(
+    i.add<ILoginUsecase>(
+      () => LoginUsecase(
         repository: i.get<IUserRepository>(),
       ),
     );

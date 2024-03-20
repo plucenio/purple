@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:purple_web/lib.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class DashboardPage extends StatefulWidget {
+  const DashboardPage({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<DashboardPage> createState() => _DashboardPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _MainPageState extends State<MainPage> {
         actions: [
           IconButton(
             onPressed: () async {
-              //TODO:
+              //TODO: do the logout
               await Nav.pushNamedAndRemoveUntil(
                   BaseModule.root, (p0) => p0.isFirst);
             },

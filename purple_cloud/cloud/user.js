@@ -38,3 +38,13 @@ Parse.Cloud.define("log-in", async (request) => {
     user.set("password", request.params.password);
     return (await user.logIn(request.params.username, request.params.password));
 });
+
+Parse.Cloud.define("log-out", async (request) => {
+    const currentUser = Parse.User.current();
+    if (currentUser) {
+        await Parse.User.logOut();
+        console.log('User logged out');
+    } else {
+        throw new Parse.Error(400, "No user logged in");
+    }
+});

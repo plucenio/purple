@@ -40,7 +40,7 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
               viewModel: viewModel,
               listener: (context, state) {
                 if (state is SuccessLoginState) {
-                  Nav.pushReplacementNamed(BaseModule.mainPage);
+                  Nav.pushReplacementNamed(BaseModule.dashboard);
                   return;
                 }
                 if (state is ErrorLoginState) {

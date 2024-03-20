@@ -4,7 +4,7 @@ import 'lib.dart';
 
 class BaseModule extends Module {
   static const String root = '/';
-  static const String mainPage = '/main';
+  static const String dashboard = '/dashboard';
 
   @override
   void binds(final i) {
@@ -33,6 +33,9 @@ class BaseModule extends Module {
       root,
       module: AuthModule(),
     );
-    r.child(mainPage, child: (final _) => const MainPage());
+    r.module(
+      dashboard,
+      module: DashboardModule(),
+    );
   }
 }

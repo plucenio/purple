@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../lib.dart';
+import '../../../../../lib.dart';
 
 class ErrorSnackBar extends SnackBar {
   const ErrorSnackBar({super.key, required super.content})

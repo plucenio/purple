@@ -6,11 +6,13 @@ class UserRespository implements IUserRepository {
   final IUserDatasource datasource;
 
   UserRespository({required this.datasource});
+
   @override
-  Future<Either<Failure, String>> login({required Login login}) async {
+  Future<Either<Failure, bool>> createAccount({required User user}) async {
     try {
-      final logged = await datasource.login(user: LoginModel.fromEntity(login));
-      return Right(logged);
+      final newAccount =
+          await datasource.createAccount(user: UserModel.fromEntity(user));
+      return Right(newAccount);
     } on DioException catch (e) {
       return Left(ServerFailure(message: e.response?.data['error']));
     } catch (e) {
@@ -19,11 +21,10 @@ class UserRespository implements IUserRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> createAccount({required User user}) async {
+  Future<Either<Failure, String>> login({required Login login}) async {
     try {
-      final newAccount =
-          await datasource.createAccount(user: UserModel.fromEntity(user));
-      return Right(newAccount);
+      final logged = await datasource.login(user: LoginModel.fromEntity(login));
+      return Right(logged);
     } on DioException catch (e) {
       return Left(ServerFailure(message: e.response?.data['error']));
     } catch (e) {
