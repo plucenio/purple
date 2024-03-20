@@ -11,15 +11,15 @@ class DashboardModule extends Module {
 
   @override
   void binds(final i) {
-    i.add<ISessionDatasource>(() => SessionDatasource(
+    i.add<IDashboardDatasource>(() => DashboardDatasource(
           httpClient: i.get<IHttpClient>(),
         ));
-    i.add<ISessionRepository>(() => SessionRespository(
-          datasource: i.get<ISessionDatasource>(),
+    i.add<IDashboardRepository>(() => DashboardRespository(
+          datasource: i.get<IDashboardDatasource>(),
         ));
     i.add<ILogoutUsecase>(
       () => LogoutUsecase(
-        repository: i.get<ISessionRepository>(),
+        repository: i.get<IDashboardRepository>(),
       ),
     );
     i.add<DashboardViewmodel>(

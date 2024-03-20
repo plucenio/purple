@@ -3,10 +3,10 @@ import 'package:dio/dio.dart';
 import '../../../../lib.dart';
 import '../../dashboard.dart';
 
-class SessionRespository implements ISessionRepository {
-  final ISessionDatasource datasource;
+class DashboardRespository implements IDashboardRepository {
+  final IDashboardDatasource datasource;
 
-  SessionRespository({required this.datasource});
+  DashboardRespository({required this.datasource});
 
   @override
   Future<Either<Failure, bool>> logout() async {

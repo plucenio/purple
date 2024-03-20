@@ -8,7 +8,7 @@ abstract class ILogoutUsecase {
 }
 
 class LogoutUsecase implements ILogoutUsecase {
-  final ISessionRepository repository;
+  final IDashboardRepository repository;
   const LogoutUsecase({required this.repository});
 
   @override

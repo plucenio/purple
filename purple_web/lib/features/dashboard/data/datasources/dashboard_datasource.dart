@@ -1,12 +1,12 @@
 import '../../../../lib.dart';
 
-abstract class ISessionDatasource {
+abstract class IDashboardDatasource {
   Future<bool> logout();
 }
 
-class SessionDatasource implements ISessionDatasource {
+class DashboardDatasource implements IDashboardDatasource {
   final IHttpClient httpClient;
-  const SessionDatasource({required this.httpClient});
+  const DashboardDatasource({required this.httpClient});
 
   @override
   Future<bool> logout() async {
