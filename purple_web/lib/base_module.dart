@@ -22,7 +22,12 @@ class BaseModule extends Module {
             },
           ),
         ),
-      ),
+      )..addInterceptors(
+          [
+            LoggerInterceptor(),
+            AuthInterceptor(),
+          ],
+        ),
     );
     i.addSingleton<IAdaptativeSizer>(
       AdaptativeSizer.instance,

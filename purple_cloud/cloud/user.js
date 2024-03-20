@@ -40,7 +40,7 @@ Parse.Cloud.define("log-in", async (request) => {
 });
 
 Parse.Cloud.define("log-out", async (request) => {
-    const currentUser = Parse.User.current();
+    const currentUser = request.user;
     if (currentUser) {
         await Parse.User.logOut();
         console.log('User logged out');

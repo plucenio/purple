@@ -15,6 +15,11 @@ final INavigation Nav = ModularNavigation.i();
 final IDependencyManager DM = ModularDependencyManager.i();
 
 ///
+/// Session token
+///
+String sessionToken = '';
+
+///
 /// `BASE_URL` is the base URL for the Back4APP Parse API.
 ///
 const String BASE_URL = 'https://parseapi.back4app.com/functions';

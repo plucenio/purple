@@ -12,6 +12,10 @@ class SuccessDashboardState extends DashboardState {
   const SuccessDashboardState();
 }
 
+class LogoutState extends DashboardState {
+  const LogoutState();
+}
+
 class ErrorDashboardState extends DashboardState {
   final String errorMessage;
   const ErrorDashboardState({required this.errorMessage});

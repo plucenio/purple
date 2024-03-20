@@ -22,6 +22,11 @@ class DashboardModule extends Module {
         repository: i.get<ISessionRepository>(),
       ),
     );
+    i.add<DashboardViewmodel>(
+      () => DashboardViewmodel(
+        usecase: i.get<ILogoutUsecase>(),
+      ),
+    );
   }
 
   @override

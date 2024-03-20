@@ -16,7 +16,12 @@ import 'http.dart';
 class HttpClient implements IHttpClient {
   final Dio dio;
 
-  const HttpClient({required this.dio});
+  HttpClient({required this.dio});
+
+  ///
+  /// HTTP interceptors
+  ///
+  final List<HttpInterceptor> interceptors = [];
 
   @override
   Future<Response<T>> post<T>(
@@ -24,11 +29,19 @@ class HttpClient implements IHttpClient {
     final Map<String, dynamic>? queryParameters,
     final Options? options,
   }) async {
+    for (var interceptor in interceptors) {
+      await interceptor.onRequest(url, dio);
+    }
     final response = await dio.post<T>(
       url,
       queryParameters: queryParameters,
       options: options,
     );
     return response;
+  }
+
+  @override
+  void addInterceptors(List<HttpInterceptor> interceptors) {
+    this.interceptors.addAll(interceptors);
   }
 }
