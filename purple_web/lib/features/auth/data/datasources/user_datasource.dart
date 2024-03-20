@@ -26,7 +26,6 @@ class UserDatasource implements IUserDatasource {
       '/log-in',
       queryParameters: user.toJson(),
     );
-    sessionToken = response.data['result']['sessionToken'];
     return response.data['result']['sessionToken'];
   }
 }

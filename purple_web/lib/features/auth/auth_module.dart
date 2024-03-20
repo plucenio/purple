@@ -28,9 +28,13 @@ class AuthModule extends Module {
         repository: i.get<IUserRepository>(),
       ),
     );
+    i.add<ISaveSessionTokenUsecase>(
+      () => SaveSessionTokenUsecase(),
+    );
     i.add<LoginViewmodel>(
       () => LoginViewmodel(
         usecase: i.get<ILoginUsecase>(),
+        saveSessionTokenUsecase: i.get<ISaveSessionTokenUsecase>(),
       ),
     );
     i.add<CreateAccountViewmodel>(

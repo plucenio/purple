@@ -32,6 +32,9 @@ class BaseModule extends Module {
     i.addSingleton<IAdaptativeSizer>(
       AdaptativeSizer.instance,
     );
+    i.add<IGetSessionTokenUsecase>(
+      () => GetSessionTokenUsecase(),
+    );
   }
 
   @override

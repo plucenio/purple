@@ -13,8 +13,9 @@ class AuthInterceptor extends HttpInterceptor {
     String url,
     Dio dio,
   ) {
-    if (sessionToken.isNotEmpty) {
-      dio.options.headers.addAll({'X-Parse-Session-Token': sessionToken});
+    final st = DM.get<IGetSessionTokenUsecase>().call();
+    if (st.isNotEmpty) {
+      dio.options.headers.addAll({'X-Parse-Session-Token': st});
     }
     return super.onRequest(
       url,
