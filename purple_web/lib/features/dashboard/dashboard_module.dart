@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../lib.dart';
+import 'dashboard.dart';
 
 class DashboardModule extends Module {
   static const String root = '/';

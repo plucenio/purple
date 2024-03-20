@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import '../../../../lib.dart';
+import '../domain.dart';
 
 abstract class IUserRepository {
   Future<Either<Failure, bool>> createAccount({required User user});

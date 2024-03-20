@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import '../../../../lib.dart';
+import '../../auth.dart';
 
 class UserRespository implements IUserRepository {
   final IUserDatasource datasource;

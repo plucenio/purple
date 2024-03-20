@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:purple_web/lib.dart';
+import 'package:purple_web/features/auth/auth.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

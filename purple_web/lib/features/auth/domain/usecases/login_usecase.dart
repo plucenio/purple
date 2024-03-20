@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:purple_web/lib.dart';
+import '../../auth.dart';
 
 abstract class ILoginUsecase {
   Future<Either<Failure, String>> call({required Login login});

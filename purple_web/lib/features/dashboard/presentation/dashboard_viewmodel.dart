@@ -1,4 +1,5 @@
 import '../../../lib.dart';
+import '../dashboard.dart';
 
 class DashboardViewmodel extends ViewModel<DashboardState> {
   final ILogoutUsecase usecase;

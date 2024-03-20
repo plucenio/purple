@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:purple_web/lib.dart';
+import '../../auth.dart';
 
 abstract class ICreateAccountUsecase {
   Future<Either<Failure, bool>> call({required User user});

@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../lib.dart';
+import 'auth.dart';
 
 class AuthModule extends Module {
   static const String root = '/';

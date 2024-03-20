@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:purple_web/lib.dart';
 
+import '../auth.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
   @override

@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'features/auth/auth.dart';
+import 'features/dashboard/dashboard.dart';
 import 'lib.dart';
 
 class BaseModule extends Module {

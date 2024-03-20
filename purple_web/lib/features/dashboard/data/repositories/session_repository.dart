@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import '../../../../lib.dart';
+import '../../dashboard.dart';
 
 class SessionRespository implements ISessionRepository {
   final ISessionDatasource datasource;

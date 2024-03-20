@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:purple_web/features/auth/auth.dart';
 import 'package:purple_web/lib.dart';
 import 'package:dio/dio.dart';
 

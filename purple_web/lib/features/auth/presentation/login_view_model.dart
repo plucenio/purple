@@ -1,4 +1,5 @@
 import '../../../lib.dart';
+import '../auth.dart';
 
 class LoginViewmodel extends ViewModel<LoginState> {
   final ILoginUsecase usecase;

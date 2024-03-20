@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 import '../../../lib.dart';
+import '../auth.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
