@@ -19,4 +19,17 @@ class DashboardRespository implements IDashboardRepository {
       return Left(ServerFailure(message: 'Ocorreu um erro.'));
     }
   }
+
+  @override
+  Future<Either<Failure, StudioModel>> getStudio(
+      {required String studioId}) async {
+    try {
+      final studio = await datasource.getStudio(studioId: studioId);
+      return Right(studio);
+    } on DioException catch (e) {
+      return Left(ServerFailure(message: e.response?.data['error']));
+    } catch (e) {
+      return Left(ServerFailure(message: 'Ocorreu um erro.'));
+    }
+  }
 }

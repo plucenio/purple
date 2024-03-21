@@ -1,7 +1,11 @@
+import 'package:purple_web/features/dashboard/dashboard.dart';
+
 import '../../../../lib.dart';
 
 abstract class IDashboardDatasource {
   Future<bool> logout();
+
+  Future<StudioModel> getStudio({required String studioId});
 }
 
 class DashboardDatasource implements IDashboardDatasource {
@@ -14,5 +18,13 @@ class DashboardDatasource implements IDashboardDatasource {
       '/log-out',
     );
     return true;
+  }
+
+  @override
+  Future<StudioModel> getStudio({required String studioId}) async {
+    final response = await httpClient.post(
+      '/get-studio',
+    );
+    return StudioModel.fromJson(response.data['result']);
   }
 }

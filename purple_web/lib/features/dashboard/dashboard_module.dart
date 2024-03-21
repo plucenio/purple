@@ -22,9 +22,15 @@ class DashboardModule extends Module {
         repository: i.get<IDashboardRepository>(),
       ),
     );
+    i.add<IGetStudioUsecase>(
+      () => GetStudioUsecase(
+        repository: i.get<IDashboardRepository>(),
+      ),
+    );
     i.add<DashboardViewmodel>(
       () => DashboardViewmodel(
-        usecase: i.get<ILogoutUsecase>(),
+        logoutUsecase: i.get<ILogoutUsecase>(),
+        getStudioUsecase: i.get<IGetStudioUsecase>(),
       ),
     );
   }

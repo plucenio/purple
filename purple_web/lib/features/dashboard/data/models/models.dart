@@ -1,2 +1,1 @@
-export 'login_model.dart';
-export 'user_model.dart';
+export 'studio_model.dart';

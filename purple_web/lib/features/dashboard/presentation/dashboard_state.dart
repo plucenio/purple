@@ -1,4 +1,5 @@
 import '../../../lib.dart';
+import '../dashboard.dart';
 
 class DashboardState extends ViewModelState {
   const DashboardState();
@@ -9,7 +10,8 @@ class LoadingDashboardState extends DashboardState {
 }
 
 class SuccessDashboardState extends DashboardState {
-  const SuccessDashboardState();
+  final Studio studio;
+  const SuccessDashboardState({required this.studio});
 }
 
 class LogoutState extends DashboardState {
