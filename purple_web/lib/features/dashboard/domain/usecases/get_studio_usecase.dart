@@ -4,7 +4,7 @@ import 'package:purple_web/lib.dart';
 import '../../dashboard.dart';
 
 abstract class IGetStudioUsecase {
-  Future<Either<Failure, Studio>> call({required String studioId});
+  Future<Either<Failure, Studio>> call();
 }
 
 class GetStudioUsecase implements IGetStudioUsecase {
@@ -12,7 +12,7 @@ class GetStudioUsecase implements IGetStudioUsecase {
   const GetStudioUsecase({required this.repository});
 
   @override
-  Future<Either<Failure, Studio>> call({required String studioId}) async {
-    return repository.getStudio(studioId: studioId);
+  Future<Either<Failure, Studio>> call() async {
+    return repository.getStudio();
   }
 }

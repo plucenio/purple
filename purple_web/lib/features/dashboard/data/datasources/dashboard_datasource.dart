@@ -5,7 +5,7 @@ import '../../../../lib.dart';
 abstract class IDashboardDatasource {
   Future<bool> logout();
 
-  Future<StudioModel> getStudio({required String studioId});
+  Future<StudioModel> getStudio();
 }
 
 class DashboardDatasource implements IDashboardDatasource {
@@ -21,7 +21,7 @@ class DashboardDatasource implements IDashboardDatasource {
   }
 
   @override
-  Future<StudioModel> getStudio({required String studioId}) async {
+  Future<StudioModel> getStudio() async {
     final response = await httpClient.post(
       '/get-studio',
     );

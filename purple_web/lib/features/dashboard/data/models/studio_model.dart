@@ -5,7 +5,7 @@ part 'studio_model.g.dart';
 @JsonSerializable()
 class StudioModel extends Studio {
   const StudioModel({
-    required super.id,
+    required super.objectId,
     required super.name,
     required super.cnpj,
     required super.cep,
@@ -25,7 +25,7 @@ class StudioModel extends Studio {
 
   factory StudioModel.fromEntity(Studio studio) {
     return StudioModel(
-      id: studio.id,
+      objectId: studio.objectId,
       name: studio.name,
       cnpj: studio.cnpj,
       cep: studio.cep,

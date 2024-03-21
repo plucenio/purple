@@ -1,5 +1,5 @@
 class Studio {
-  final String id;
+  final String objectId;
   final String name;
   final String cnpj;
   final String cep;
@@ -12,7 +12,7 @@ class Studio {
   final String country;
 
   const Studio({
-    required this.id,
+    required this.objectId,
     required this.name,
     required this.cnpj,
     required this.cep,

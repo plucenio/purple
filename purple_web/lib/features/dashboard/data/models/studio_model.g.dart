@@ -7,7 +7,7 @@ part of 'studio_model.dart';
 // **************************************************************************
 
 StudioModel _$StudioModelFromJson(Map<String, dynamic> json) => StudioModel(
-      id: json['id'] as String,
+      objectId: json['objectId'] as String,
       name: json['name'] as String,
       cnpj: json['cnpj'] as String,
       cep: json['cep'] as String,
@@ -22,7 +22,7 @@ StudioModel _$StudioModelFromJson(Map<String, dynamic> json) => StudioModel(
 
 Map<String, dynamic> _$StudioModelToJson(StudioModel instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'objectId': instance.objectId,
       'name': instance.name,
       'cnpj': instance.cnpj,
       'cep': instance.cep,

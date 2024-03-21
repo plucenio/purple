@@ -21,10 +21,9 @@ class DashboardRespository implements IDashboardRepository {
   }
 
   @override
-  Future<Either<Failure, StudioModel>> getStudio(
-      {required String studioId}) async {
+  Future<Either<Failure, StudioModel>> getStudio() async {
     try {
-      final studio = await datasource.getStudio(studioId: studioId);
+      final studio = await datasource.getStudio();
       return Right(studio);
     } on DioException catch (e) {
       return Left(ServerFailure(message: e.response?.data['error']));

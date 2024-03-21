@@ -9,8 +9,14 @@ class DashboardViewmodel extends ViewModel<DashboardState> {
     required this.logoutUsecase,
   }) : super(const DashboardState());
 
-  void getStudio({required String studioId}) async {
-    final newState = (await getStudioUsecase.call(studioId: studioId)).fold(
+  @override
+  void initViewModel() {
+    super.initViewModel();
+    getStudio();
+  }
+
+  void getStudio() async {
+    final newState = (await getStudioUsecase.call()).fold(
       (l) => ErrorDashboardState(errorMessage: l.message),
       (r) => SuccessDashboardState(studio: r),
     );
