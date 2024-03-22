@@ -1,4 +1,5 @@
 const User = Parse.Object.extend("_User");
+const Studio = Parse.Object.extend("Studio");
 
 Parse.Cloud.define("get-user", async (request) => {
     if (request.params.username != null) {
@@ -47,3 +48,18 @@ Parse.Cloud.define("log-out", async (request) => {
         throw new Parse.Error(400, "No user logged in");
     }
 });
+
+Parse.Cloud.define("update-studio-on-user", async (request) => {
+    if (request.params.studio == null) throw new Parse.Error(400, "Missing studio");
+    const currentUser = request.user;
+    if (currentUser) {
+        const user = currentUser;
+        const queryStudio = new Parse.Query(Studio);
+        const newStudio = await queryStudio.get(request.params.studio, { useMasterKey: true });
+        if (newStudio == null) throw new Parse.Error(400, "Studio not found");
+        user.set("studio", newStudio);
+        return await user.save(null, { useMasterKey: true });
+    } else {
+        throw new Parse.Error(400, "No user logged in");
+    }
+})

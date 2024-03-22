@@ -62,70 +62,74 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          TextFormField(
-                            controller: _emailController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
-                              icon: const Icon(Icons.email),
-                              labelText: 'Email',
-                              labelStyle: TextStyle(
-                                color: context.theme.primaryColor,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: context.theme.primaryColor),
-                              ),
-                            ),
-                            validator: (String? value) {
-                              return !EmailValidator.validate(value ?? '')
-                                  ? 'Email inválido'
-                                  : null;
-                            },
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-                            obscureText: true,
-                            controller: _passwordController,
-                            decoration: InputDecoration(
-                              icon: const Icon(Icons.lock),
-                              labelText: 'Senha',
-                              labelStyle: TextStyle(
-                                color: context.theme.primaryColor,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: context.theme.primaryColor),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          ElevatedButton(
-                              child: const Text('Entrar'),
-                              onPressed: () async {
-                                if (_formKey.currentState!.validate()) {
-                                  viewModel.login(
-                                    login: Login(
-                                      username: _emailController.text,
-                                      password: _passwordController.text,
+                    child: (state is LoadingCreateAccountState)
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : Form(
+                            key: _formKey,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                TextFormField(
+                                  controller: _emailController,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  decoration: InputDecoration(
+                                    icon: const Icon(Icons.email),
+                                    labelText: 'Email',
+                                    labelStyle: TextStyle(
+                                      color: context.theme.primaryColor,
                                     ),
-                                  );
-                                }
-                              }),
-                          const SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () async {
-                              Nav.pushNamed(AuthModule.createAccount);
-                            },
-                            child: const Text('Criar conta'),
-                          ),
-                          /*const SizedBox(height: 20),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: context.theme.primaryColor),
+                                    ),
+                                  ),
+                                  validator: (String? value) {
+                                    return !EmailValidator.validate(value ?? '')
+                                        ? 'Email inválido'
+                                        : null;
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  obscureText: true,
+                                  controller: _passwordController,
+                                  decoration: InputDecoration(
+                                    icon: const Icon(Icons.lock),
+                                    labelText: 'Senha',
+                                    labelStyle: TextStyle(
+                                      color: context.theme.primaryColor,
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: context.theme.primaryColor),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                ElevatedButton(
+                                    child: const Text('Entrar'),
+                                    onPressed: () async {
+                                      if (_formKey.currentState!.validate()) {
+                                        viewModel.login(
+                                          login: Login(
+                                            username: _emailController.text,
+                                            password: _passwordController.text,
+                                          ),
+                                        );
+                                      }
+                                    }),
+                                const SizedBox(height: 10),
+                                ElevatedButton(
+                                  onPressed: () async {
+                                    Nav.pushNamed(AuthModule.createAccount);
+                                  },
+                                  child: const Text('Criar conta'),
+                                ),
+                                /*const SizedBox(height: 20),
                           ElevatedButton(
                             onPressed: () async {
                               //if (_formKey.currentState!.validate()) {
@@ -139,9 +143,9 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                             child: const Text('Esqueci minha senha'),
                           )
                           */
-                        ],
-                      ),
-                    ),
+                              ],
+                            ),
+                          ),
                   ),
                 ),
               ),

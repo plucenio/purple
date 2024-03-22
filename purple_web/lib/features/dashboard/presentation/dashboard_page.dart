@@ -13,6 +13,7 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
   final _formKey = GlobalKey<FormState>();
+  final _documentController = TextEditingController();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _phoneNumberController = TextEditingController();
@@ -71,11 +72,28 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   TextFormField(
+                                    controller: _documentController,
+                                    autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                    decoration: InputDecoration(
+                                      icon: const Icon(Icons.account_box),
+                                      labelText: 'CNPJ/CPF',
+                                      labelStyle: TextStyle(
+                                        color: context.theme.primaryColor,
+                                      ),
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: context.theme.primaryColor),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  TextFormField(
                                     controller: _nameController,
                                     autovalidateMode:
                                         AutovalidateMode.onUserInteraction,
                                     decoration: InputDecoration(
-                                      icon: const Icon(Icons.person),
+                                      icon: const Icon(Icons.business),
                                       labelText: 'Nome',
                                       labelStyle: TextStyle(
                                         color: context.theme.primaryColor,
