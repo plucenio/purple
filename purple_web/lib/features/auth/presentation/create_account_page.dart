@@ -61,154 +61,159 @@ class _CreateAccountPageState
                         }
                       }
                     },
-                    builder: (context, state) => Form(
-                      key: _formKey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          TextFormField(
-                            controller: _nameController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
-                              icon: const Icon(Icons.person),
-                              labelText: 'Nome',
-                              labelStyle: TextStyle(
-                                color: context.theme.primaryColor,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: context.theme.primaryColor),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-                            controller: _emailController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
-                              icon: const Icon(Icons.email),
-                              labelText: 'Email',
-                              labelStyle: TextStyle(
-                                color: context.theme.primaryColor,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: context.theme.primaryColor),
-                              ),
-                            ),
-                            validator: (String? value) {
-                              return !EmailValidator.validate(value ?? '')
-                                  ? 'Email inválido'
-                                  : null;
-                            },
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-                            controller: _phoneNumberController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
-                              icon: const Icon(Icons.phone),
-                              labelText: 'Telefone',
-                              labelStyle: TextStyle(
-                                color: context.theme.primaryColor,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: context.theme.primaryColor),
-                              ),
-                            ),
-                            validator: (phone) {
-                              if (phone == null || phone.isEmpty) {
-                                return 'Cadastre um telefone';
-                              }
-                              if (phone.length < 8) {
-                                return 'Telefone inválido';
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-                            obscureText: true,
-                            controller: _passwordController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
-                              icon: const Icon(Icons.lock),
-                              labelText: 'Senha',
-                              labelStyle: TextStyle(
-                                color: context.theme.primaryColor,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: context.theme.primaryColor),
-                              ),
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Crie uma senha';
-                              }
-                              if (value.length < 6) {
-                                return 'A senha deve ter mais do que 6 caracteres';
-                              }
-                              return null;
-                            },
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-                            obscureText: true,
-                            controller: _confirmPasswordController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
-                              icon: const Icon(Icons.lock),
-                              labelText: 'Confirme a sua senha',
-                              labelStyle: TextStyle(
-                                color: context.theme.primaryColor,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: context.theme.primaryColor),
-                              ),
-                            ),
-                            validator: (value) =>
-                                value != _passwordController.text
-                                    ? 'Confirme a senha corretamente'
-                                    : null,
-                          ),
-                          const SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () async {
-                              if (_formKey.currentState!.validate()) {
-                                viewModel.createAccount(
-                                  user: User(
-                                    name: _nameController.text,
-                                    username: _emailController.text,
-                                    password: _passwordController.text,
-                                    confirmedPassword:
-                                        _confirmPasswordController.text,
-                                    email: _emailController.text,
-                                    phone: _phoneNumberController.text,
+                    builder: (context, state) => (state
+                            is LoadingCreateAccountState)
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : Form(
+                            key: _formKey,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                TextFormField(
+                                  controller: _nameController,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  decoration: InputDecoration(
+                                    icon: const Icon(Icons.person),
+                                    labelText: 'Nome',
+                                    labelStyle: TextStyle(
+                                      color: context.theme.primaryColor,
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: context.theme.primaryColor),
+                                    ),
                                   ),
-                                );
-                              }
-                            },
-                            child: const Text('Criar conta'),
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  controller: _emailController,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  decoration: InputDecoration(
+                                    icon: const Icon(Icons.email),
+                                    labelText: 'Email',
+                                    labelStyle: TextStyle(
+                                      color: context.theme.primaryColor,
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: context.theme.primaryColor),
+                                    ),
+                                  ),
+                                  validator: (String? value) {
+                                    return !EmailValidator.validate(value ?? '')
+                                        ? 'Email inválido'
+                                        : null;
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  controller: _phoneNumberController,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  decoration: InputDecoration(
+                                    icon: const Icon(Icons.phone),
+                                    labelText: 'Telefone',
+                                    labelStyle: TextStyle(
+                                      color: context.theme.primaryColor,
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: context.theme.primaryColor),
+                                    ),
+                                  ),
+                                  validator: (phone) {
+                                    if (phone == null || phone.isEmpty) {
+                                      return 'Cadastre um telefone';
+                                    }
+                                    if (phone.length < 8) {
+                                      return 'Telefone inválido';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  obscureText: true,
+                                  controller: _passwordController,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  decoration: InputDecoration(
+                                    icon: const Icon(Icons.lock),
+                                    labelText: 'Senha',
+                                    labelStyle: TextStyle(
+                                      color: context.theme.primaryColor,
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: context.theme.primaryColor),
+                                    ),
+                                  ),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Crie uma senha';
+                                    }
+                                    if (value.length < 6) {
+                                      return 'A senha deve ter mais do que 6 caracteres';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  obscureText: true,
+                                  controller: _confirmPasswordController,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  decoration: InputDecoration(
+                                    icon: const Icon(Icons.lock),
+                                    labelText: 'Confirme a sua senha',
+                                    labelStyle: TextStyle(
+                                      color: context.theme.primaryColor,
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: context.theme.primaryColor),
+                                    ),
+                                  ),
+                                  validator: (value) =>
+                                      value != _passwordController.text
+                                          ? 'Confirme a senha corretamente'
+                                          : null,
+                                ),
+                                const SizedBox(height: 10),
+                                ElevatedButton(
+                                  onPressed: () async {
+                                    if (_formKey.currentState!.validate()) {
+                                      viewModel.createAccount(
+                                        user: User(
+                                          name: _nameController.text,
+                                          username: _emailController.text,
+                                          password: _passwordController.text,
+                                          confirmedPassword:
+                                              _confirmPasswordController.text,
+                                          email: _emailController.text,
+                                          phone: _phoneNumberController.text,
+                                        ),
+                                      );
+                                    }
+                                  },
+                                  child: const Text('Criar conta'),
+                                ),
+                                const SizedBox(height: 10),
+                                ElevatedButton(
+                                  onPressed: () async {
+                                    Nav.pop();
+                                  },
+                                  child: const Text('Voltar'),
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(height: 10),
-                          ElevatedButton(
-                            onPressed: () async {
-                              Nav.pop();
-                            },
-                            child: const Text('Voltar'),
-                          ),
-                        ],
-                      ),
-                    ),
                   ),
                 ),
               ),

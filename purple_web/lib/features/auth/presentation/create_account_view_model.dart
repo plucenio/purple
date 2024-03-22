@@ -7,6 +7,7 @@ class CreateAccountViewmodel extends ViewModel<CreateAccountState> {
       : super(const CreateAccountState());
 
   void createAccount({required User user}) async {
+    emit(const LoadingCreateAccountState());
     final loggedUser = await usecase.call(user: user);
     final newState = loggedUser.fold(
         (l) => ErrorCreateAccountState(errorMessage: l.message),

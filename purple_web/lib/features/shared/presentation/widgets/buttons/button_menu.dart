@@ -17,13 +17,14 @@ class ButtonMenuState extends State<ButtonMenu> {
     return ElevatedButton(
       onPressed: widget.onPressed,
       style: ButtonStyle(
-          shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-            8,
-          ))),
-          backgroundColor: MaterialStateProperty.all(
-            AppColor.PRIMARY,
-          )),
+        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+          8,
+        ))),
+        backgroundColor: MaterialStateProperty.all(
+          AppColor.PRIMARY,
+        ),
+      ),
       child: Center(
         child: Text(
           widget.text,

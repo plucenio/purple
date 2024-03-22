@@ -16,14 +16,20 @@ class DashboardViewmodel extends ViewModel<DashboardState> {
   }
 
   void getStudio() async {
+    emit(const LoadingDashboardState());
     final newState = (await getStudioUsecase.call()).fold(
       (l) => ErrorDashboardState(errorMessage: l.message),
-      (r) => SuccessDashboardState(studio: r),
+      (studio) {
+        return studio != null
+            ? SuccessDashboardState(studio: studio)
+            : const InexistentStudioState();
+      },
     );
     emit(newState);
   }
 
   void logout() async {
+    emit(const LoadingDashboardState());
     final newState = (await logoutUsecase.call()).fold(
       (l) => ErrorDashboardState(errorMessage: l.message),
       (r) => const LogoutState(),

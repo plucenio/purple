@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:purple_web/lib.dart';
 
@@ -11,6 +12,13 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _phoneNumberController = TextEditingController();
+
+  final _codeController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return ViewModelConsumer(
@@ -44,82 +52,159 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
             )
           ],
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: Container(
-                        color: context.theme.colorScheme.primaryContainer,
-                        child: Column(
-                          children: [
-                            ButtonMenu(
-                              text: 'Pacientes',
-                              onPressed: () {},
+        body: (state is LoadingDashboardState)
+            ? const Center(child: CircularProgressIndicator())
+            : (state is InexistentStudioState)
+                ? DashboardStructure(
+                    showMenu: false,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20.0, right: 20.0, bottom: 100),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Form(
+                              key: _formKey,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  TextFormField(
+                                    controller: _nameController,
+                                    autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                    decoration: InputDecoration(
+                                      icon: const Icon(Icons.person),
+                                      labelText: 'Nome',
+                                      labelStyle: TextStyle(
+                                        color: context.theme.primaryColor,
+                                      ),
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: context.theme.primaryColor),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  TextFormField(
+                                    controller: _emailController,
+                                    autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                    decoration: InputDecoration(
+                                      icon: const Icon(Icons.email),
+                                      labelText: 'Email',
+                                      labelStyle: TextStyle(
+                                        color: context.theme.primaryColor,
+                                      ),
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: context.theme.primaryColor),
+                                      ),
+                                    ),
+                                    validator: (String? value) {
+                                      return !EmailValidator.validate(
+                                              value ?? '')
+                                          ? 'Email inválido'
+                                          : null;
+                                    },
+                                  ),
+                                  const SizedBox(height: 10),
+                                  TextFormField(
+                                    controller: _phoneNumberController,
+                                    autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                    decoration: InputDecoration(
+                                      icon: const Icon(Icons.phone),
+                                      labelText: 'Telefone',
+                                      labelStyle: TextStyle(
+                                        color: context.theme.primaryColor,
+                                      ),
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: context.theme.primaryColor),
+                                      ),
+                                    ),
+                                    validator: (phone) {
+                                      if (phone == null || phone.isEmpty) {
+                                        return 'Cadastre um telefone';
+                                      }
+                                      if (phone.length < 8) {
+                                        return 'Telefone inválido';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  const SizedBox(height: 10),
+                                  CustomButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Criar um novo Studio',
+                                      style: context.theme.textTheme.bodyLarge!
+                                          .copyWith(
+                                        color: AppColor.INVERTED_TEXT_COLOR,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            ButtonMenu(
-                              text: 'Evoluções',
-                              onPressed: () {},
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            ButtonMenu(
-                              text: 'Agenda',
-                              onPressed: () {},
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            ButtonMenu(
-                              text: 'Financeiro',
-                              onPressed: () {},
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            ButtonMenu(
-                              text: 'Configurações',
-                              onPressed: () {},
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      flex: 4,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Container(
-                          color: context.theme.colorScheme.primaryContainer,
-                          child: const Center(
-                            child: Text('logged'),
                           ),
-                        ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const VerticalDivider(
+                            thickness: 1,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                TextFormField(
+                                  controller: _codeController,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  decoration: InputDecoration(
+                                    icon: const Icon(Icons.code),
+                                    labelText: 'Código',
+                                    labelStyle: TextStyle(
+                                      color: context.theme.primaryColor,
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: context.theme.primaryColor),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                CustomButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Entrar com um Studio existente',
+                                    style: context.theme.textTheme.bodyLarge!
+                                        .copyWith(
+                                      color: AppColor.INVERTED_TEXT_COLOR,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Flexible(
-                      flex: 1,
-                      child: Container(
-                        color: context.theme.colorScheme.primaryContainer,
-                      ),
+                  )
+                : const DashboardStructure(
+                    child: Center(
+                      child: Text('logged'),
                     ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              height: 60.0,
-              color: Colors.purple.shade200,
-            )
-          ],
-        ),
+                  ),
       ),
     );
   }

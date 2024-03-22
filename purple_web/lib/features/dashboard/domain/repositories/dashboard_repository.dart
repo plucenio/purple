@@ -5,5 +5,5 @@ import '../../dashboard.dart';
 abstract class IDashboardRepository {
   Future<Either<Failure, bool>> logout();
 
-  Future<Either<Failure, StudioModel>> getStudio();
+  Future<Either<Failure, StudioModel?>> getStudio();
 }

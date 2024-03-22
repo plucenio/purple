@@ -14,6 +14,10 @@ class SuccessDashboardState extends DashboardState {
   const SuccessDashboardState({required this.studio});
 }
 
+class InexistentStudioState extends DashboardState {
+  const InexistentStudioState();
+}
+
 class LogoutState extends DashboardState {
   const LogoutState();
 }

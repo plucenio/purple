@@ -1,2 +1,2 @@
-export 'buttons/button_menu.dart';
+export 'buttons/buttons.dart';
 export 'snackbars/snackbars.dart';

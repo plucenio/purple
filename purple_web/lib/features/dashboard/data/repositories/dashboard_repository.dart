@@ -21,7 +21,7 @@ class DashboardRespository implements IDashboardRepository {
   }
 
   @override
-  Future<Either<Failure, StudioModel>> getStudio() async {
+  Future<Either<Failure, StudioModel?>> getStudio() async {
     try {
       final studio = await datasource.getStudio();
       return Right(studio);
