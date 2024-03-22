@@ -8,4 +8,6 @@ abstract class IDashboardRepository {
   Future<Either<Failure, Studio?>> getStudio();
 
   Future<Either<Failure, Studio?>> createStudio({required Studio studio});
+
+  Future<Either<Failure, Studio?>> linkStudio({required String studioId});
 }

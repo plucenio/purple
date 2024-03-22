@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:purple_web/features/dashboard/domain/usecases/link_studio_usecase.dart';
 
 import '../../lib.dart';
 import 'dashboard.dart';
@@ -32,11 +33,17 @@ class DashboardModule extends Module {
         repository: i.get<IDashboardRepository>(),
       ),
     );
+    i.add<ILinkStudioUsecase>(
+      () => LinkStudioUsecase(
+        repository: i.get<IDashboardRepository>(),
+      ),
+    );
     i.add<DashboardViewmodel>(
       () => DashboardViewmodel(
         logoutUsecase: i.get<ILogoutUsecase>(),
         getStudioUsecase: i.get<IGetStudioUsecase>(),
         createStudioUsecase: i.get<ICreateStudioUsecase>(),
+        linkStudioUsecase: i.get<ILinkStudioUsecase>(),
       ),
     );
   }

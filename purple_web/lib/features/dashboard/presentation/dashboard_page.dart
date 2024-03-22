@@ -30,6 +30,11 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
               BaseModule.root, (p0) => p0.isFirst);
           return;
         }
+        if (state is NewStudioCreatedState) {
+          if (state.studio.objectId != null) {
+            viewModel.linkStudio(studioId: state.studio.objectId!);
+          }
+        }
         if (state is ErrorDashboardState) {
           if (state.errorMessage.isNotEmpty) {
             context.showSnackBar(ErrorSnackBar(

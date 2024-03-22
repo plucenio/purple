@@ -49,16 +49,17 @@ Parse.Cloud.define("log-out", async (request) => {
     }
 });
 
-Parse.Cloud.define("update-studio-on-user", async (request) => {
-    if (request.params.studio == null) throw new Parse.Error(400, "Missing studio");
+Parse.Cloud.define("link-studio-on-user", async (request) => {
+    if (request.params.studioId == null) throw new Parse.Error(400, "Missing studio");
     const currentUser = request.user;
     if (currentUser) {
         const user = currentUser;
         const queryStudio = new Parse.Query(Studio);
-        const newStudio = await queryStudio.get(request.params.studio, { useMasterKey: true });
+        const newStudio = await queryStudio.get(request.params.studioId, { useMasterKey: true });
         if (newStudio == null) throw new Parse.Error(400, "Studio not found");
         user.set("studio", newStudio);
-        return await user.save(null, { useMasterKey: true });
+        await user.save(null, { useMasterKey: true });
+        return newStudio;
     } else {
         throw new Parse.Error(400, "No user logged in");
     }
