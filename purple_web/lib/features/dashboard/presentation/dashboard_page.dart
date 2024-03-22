@@ -45,69 +45,77 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
           ],
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Flexible(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 10,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Flexible(
+                      child: Container(
+                        color: context.theme.colorScheme.primaryContainer,
+                        child: Column(
+                          children: [
+                            ButtonMenu(
+                              text: 'Pacientes',
+                              onPressed: () {},
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            ButtonMenu(
+                              text: 'Evoluções',
+                              onPressed: () {},
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            ButtonMenu(
+                              text: 'Agenda',
+                              onPressed: () {},
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            ButtonMenu(
+                              text: 'Financeiro',
+                              onPressed: () {},
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            ButtonMenu(
+                              text: 'Configurações',
+                              onPressed: () {},
+                            ),
+                          ],
                         ),
-                        ButtonMenu(
-                          text: 'Pacientes',
-                          onPressed: () {},
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        ButtonMenu(
-                          text: 'Evoluções',
-                          onPressed: () {},
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        ButtonMenu(
-                          text: 'Agenda',
-                          onPressed: () {},
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        ButtonMenu(
-                          text: 'Financeiro',
-                          onPressed: () {},
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        ButtonMenu(
-                          text: 'Configurações',
-                          onPressed: () {},
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                  const Flexible(
-                    flex: 5,
-                    child: Center(
-                      child: Text('logged'),
+                    Flexible(
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Container(
+                          color: context.theme.colorScheme.primaryContainer,
+                          child: const Center(
+                            child: Text('logged'),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Container(),
-                  ),
-                ],
+                    Flexible(
+                      flex: 1,
+                      child: Container(
+                        color: context.theme.colorScheme.primaryContainer,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
-              height: 60,
+              height: 60.0,
               color: Colors.purple.shade200,
             )
           ],
