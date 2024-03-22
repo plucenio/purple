@@ -6,8 +6,10 @@ part 'studio_model.g.dart';
 class StudioModel extends Studio {
   const StudioModel({
     required super.objectId,
-    required super.name,
     required super.cnpj,
+    required super.name,
+    required super.phone,
+    required super.email,
     required super.cep,
     required super.address,
     required super.number,
@@ -26,8 +28,10 @@ class StudioModel extends Studio {
   factory StudioModel.fromEntity(Studio studio) {
     return StudioModel(
       objectId: studio.objectId,
-      name: studio.name,
       cnpj: studio.cnpj,
+      name: studio.name,
+      phone: studio.phone,
+      email: studio.email,
       cep: studio.cep,
       address: studio.address,
       number: studio.number,

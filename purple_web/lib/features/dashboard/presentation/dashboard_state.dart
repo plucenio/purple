@@ -18,6 +18,11 @@ class InexistentStudioState extends DashboardState {
   const InexistentStudioState();
 }
 
+class NewStudioCreatedState extends DashboardState {
+  final Studio studio;
+  const NewStudioCreatedState({required this.studio});
+}
+
 class LogoutState extends DashboardState {
   const LogoutState();
 }

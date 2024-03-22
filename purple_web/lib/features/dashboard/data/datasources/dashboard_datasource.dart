@@ -6,6 +6,8 @@ abstract class IDashboardDatasource {
   Future<bool> logout();
 
   Future<StudioModel?> getStudio();
+
+  Future<StudioModel?> createStudio({required StudioModel studio});
 }
 
 class DashboardDatasource implements IDashboardDatasource {
@@ -24,6 +26,17 @@ class DashboardDatasource implements IDashboardDatasource {
   Future<StudioModel?> getStudio() async {
     final response = await httpClient.post(
       '/get-studio',
+    );
+    return response.data['result'] == null
+        ? null
+        : StudioModel.fromJson(response.data['result']);
+  }
+
+  @override
+  Future<StudioModel?> createStudio({required StudioModel studio}) async {
+    final response = await httpClient.post(
+      '/create-studio',
+      queryParameters: studio.toJson(),
     );
     return response.data['result'] == null
         ? null

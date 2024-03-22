@@ -155,7 +155,17 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                                   ),
                                   const SizedBox(height: 10),
                                   CustomButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      if (_formKey.currentState!.validate()) {
+                                        viewModel.createStudio(
+                                            studio: Studio(
+                                          name: _nameController.text,
+                                          cnpj: _documentController.text,
+                                          email: _emailController.text,
+                                          phone: _phoneNumberController.text,
+                                        ));
+                                      }
+                                    },
                                     child: Text(
                                       'Criar um novo Studio',
                                       style: context.theme.textTheme.bodyLarge!

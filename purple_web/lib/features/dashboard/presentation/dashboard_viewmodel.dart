@@ -4,9 +4,11 @@ import '../dashboard.dart';
 class DashboardViewmodel extends ViewModel<DashboardState> {
   final ILogoutUsecase logoutUsecase;
   final IGetStudioUsecase getStudioUsecase;
+  final ICreateStudioUsecase createStudioUsecase;
   DashboardViewmodel({
     required this.getStudioUsecase,
     required this.logoutUsecase,
+    required this.createStudioUsecase,
   }) : super(const DashboardState());
 
   @override
@@ -33,6 +35,17 @@ class DashboardViewmodel extends ViewModel<DashboardState> {
     final newState = (await logoutUsecase.call()).fold(
       (l) => ErrorDashboardState(errorMessage: l.message),
       (r) => const LogoutState(),
+    );
+    emit(newState);
+  }
+
+  void createStudio({required Studio studio}) async {
+    emit(const LoadingDashboardState());
+    final newState = (await createStudioUsecase.call(studio: studio)).fold(
+      (l) => ErrorDashboardState(errorMessage: l.message),
+      (r) => r == null
+          ? const InexistentStudioState()
+          : NewStudioCreatedState(studio: r),
     );
     emit(newState);
   }
