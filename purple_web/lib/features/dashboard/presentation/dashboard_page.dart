@@ -216,7 +216,13 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                                 ),
                                 const SizedBox(height: 10),
                                 CustomButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    if (_codeController.text.isNotEmpty) {
+                                      viewModel.linkStudio(
+                                        studioId: _codeController.text,
+                                      );
+                                    }
+                                  },
                                   child: Text(
                                     'Entrar com um Studio existente',
                                     style: context.theme.textTheme.bodyLarge!
