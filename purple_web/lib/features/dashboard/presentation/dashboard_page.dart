@@ -39,47 +39,77 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
               },
               icon: const Icon(
                 Icons.logout,
-                color: Colors.black,
+                color: AppColor.INVERTED_TEXT_COLOR,
               ),
             )
           ],
         ),
-        body: Row(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Flexible(
-              flex: 1,
-              child: Column(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
                 children: [
-                  Container(
-                    height: 100,
-                    color: Colors.teal,
+                  Flexible(
+                    flex: 1,
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ButtonMenu(
+                          text: 'Pacientes',
+                          onPressed: () {},
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ButtonMenu(
+                          text: 'Evoluções',
+                          onPressed: () {},
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ButtonMenu(
+                          text: 'Agenda',
+                          onPressed: () {},
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ButtonMenu(
+                          text: 'Financeiro',
+                          onPressed: () {},
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ButtonMenu(
+                          text: 'Configurações',
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                  const Flexible(
+                    flex: 5,
+                    child: Center(
+                      child: Text('logged'),
+                    ),
                   ),
-                  Container(
-                    height: 100,
-                    color: Colors.teal,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 100,
-                    color: Colors.teal,
+                  Flexible(
+                    flex: 1,
+                    child: Container(),
                   ),
                 ],
               ),
             ),
-            Flexible(
-              flex: 5,
-              child: Container(
-                color: context.theme.primaryColor,
-                child: const Center(
-                  child: Text('logged'),
-                ),
-              ),
-            ),
+            Container(
+              height: 60,
+              color: Colors.purple.shade200,
+            )
           ],
         ),
       ),

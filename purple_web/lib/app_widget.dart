@@ -23,7 +23,7 @@ class AppWidget extends StatelessWidget {
           titleTextStyle: GoogleFonts.catamaran(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: AppColor.TEXT_COLOR,
+            color: AppColor.INVERTED_TEXT_COLOR,
           ),
           actionsIconTheme: const IconThemeData(color: AppColor.PRIMARY),
           iconTheme: const IconThemeData(color: AppColor.PRIMARY),

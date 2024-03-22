@@ -12,8 +12,8 @@ class AuthInterceptor extends HttpInterceptor {
   FutureOr<Dio> onRequest(
     String url,
     Dio dio,
-  ) {
-    final st = DM.get<IGetSessionTokenUsecase>().call();
+  ) async {
+    final st = await DM.get<IGetSessionTokenUsecase>().call();
     if (st.isNotEmpty) {
       dio.options.headers.addAll({'X-Parse-Session-Token': st});
     }

@@ -1,12 +1,16 @@
-import '../../lib.dart';
+import 'package:localstorage/localstorage.dart';
 
 abstract class IGetSessionTokenUsecase {
-  String call();
+  Future<String> call();
 }
 
 class GetSessionTokenUsecase implements IGetSessionTokenUsecase {
   @override
-  String call() {
-    return sessionToken;
+  Future<String> call() async {
+    final LocalStorage storage = LocalStorage('session_token');
+    if (!await storage.ready) {
+      return '';
+    }
+    return (await storage.getItem('value')) ?? '';
   }
 }

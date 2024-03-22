@@ -28,8 +28,3 @@ const String APP_ID = '6CG5d345xurtrv4RuCflZTXgLCmA03p95ARYKdGt';
 /// It is used to authenticate requests to the API.
 ///
 const String API_KEY = '9Ai5yTF23pKwmBmQO8DQrGQh2RDaKMhITIhOcszh';
-
-///
-/// `sessionToken` is the session token used to authenticate requests to the API.
-///
-String sessionToken = '';
