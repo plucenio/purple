@@ -18,7 +18,7 @@ class AppWidget extends StatelessWidget {
           color: AppColor.TEXT_COLOR,
         ).fontFamily,
         appBarTheme: AppBarTheme(
-          centerTitle: true,
+          centerTitle: false,
           backgroundColor: AppColor.PRIMARY,
           titleTextStyle: GoogleFonts.catamaran(
             fontSize: 18,
@@ -30,28 +30,35 @@ class AppWidget extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
+            iconColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
             foregroundColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
             textStyle: MaterialStateProperty.all(
-              GoogleFonts.catamaran(
-                color: AppColor.TEXT_COLOR,
-              ),
+              GoogleFonts.catamaran(),
             ),
           ),
         ),
+        iconTheme: const IconThemeData(
+          color: AppColor.TEXT_COLOR,
+        ),
+        iconButtonTheme: IconButtonThemeData(
+            style: ButtonStyle(
+                iconColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
+                foregroundColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
+                textStyle: MaterialStateProperty.all(
+                  GoogleFonts.catamaran(
+                    color: AppColor.TEXT_COLOR,
+                  ),
+                ))),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(AppColor.SECONDARY),
+            foregroundColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
             textStyle: MaterialStateProperty.all(
-              GoogleFonts.catamaran(
-                color: AppColor.TEXT_COLOR,
-              ),
+              GoogleFonts.catamaran(),
             ),
           ),
         ),
         inputDecorationTheme: InputDecorationTheme(
-          labelStyle: GoogleFonts.catamaran(
-            color: AppColor.TEXT_COLOR,
-          ),
+          labelStyle: GoogleFonts.catamaran(),
         ),
         cardTheme: const CardTheme(color: AppColor.BODY_COLOR),
         primaryColor: AppColor.PRIMARY,

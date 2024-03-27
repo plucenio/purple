@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../lib.dart';
 
 class ButtonMenu extends StatefulWidget {
-  final String text;
+  final String? text;
+  final String tooltipMessage;
+  final Icon icon;
   final Function()? onPressed;
-  const ButtonMenu({super.key, required this.text, this.onPressed});
+  const ButtonMenu({
+    super.key,
+    this.text,
+    required this.icon,
+    required this.tooltipMessage,
+    this.onPressed,
+  });
 
   @override
   State<ButtonMenu> createState() => ButtonMenuState();
@@ -14,25 +21,32 @@ class ButtonMenu extends StatefulWidget {
 class ButtonMenuState extends State<ButtonMenu> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: widget.onPressed,
-      style: ButtonStyle(
-        shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-          8,
-        ))),
-        backgroundColor: MaterialStateProperty.all(
-          AppColor.PRIMARY,
-        ),
-      ),
-      child: Center(
-        child: Text(
-          widget.text,
-          style: context.theme.textTheme.bodyLarge!.copyWith(
-            color: AppColor.INVERTED_TEXT_COLOR,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+    return AnimatedSize(
+      duration: const Duration(milliseconds: 200),
+      child: Tooltip(
+        message: widget.tooltipMessage,
+        waitDuration: const Duration(milliseconds: 750),
+        child: widget.text == null
+            ? IconButton(onPressed: widget.onPressed, icon: widget.icon)
+            : TextButton.icon(
+                icon: widget.icon,
+                onPressed: widget.onPressed,
+                style: ButtonStyle(
+                  shape: MaterialStatePropertyAll(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        0,
+                      ),
+                    ),
+                  ),
+                ),
+                label: Text(
+                  widget.text!,
+                  style: context.theme.textTheme.bodyLarge!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
       ),
     );
   }
