@@ -23,7 +23,7 @@ class _DashboardStructureState extends State<DashboardStructure> {
             ? AnimatedSize(
                 duration: const Duration(milliseconds: 200),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
                       onPressed: () {

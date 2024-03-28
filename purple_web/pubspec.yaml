@@ -43,6 +43,7 @@ dependencies:
   email_validator: ^2.1.17
   lottie: ^3.1.0
   localstorage: ^4.0.1+4
+  calendar_view: ^1.1.0
 
 dev_dependencies:
   flutter_test:

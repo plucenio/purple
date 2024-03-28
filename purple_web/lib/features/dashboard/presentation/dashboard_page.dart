@@ -240,9 +240,7 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                     ),
                   )
                 : const DashboardStructure(
-                    child: Center(
-                      child: Text('logged'),
-                    ),
+                    child: SchedulePage(),
                   ),
       ),
     );
