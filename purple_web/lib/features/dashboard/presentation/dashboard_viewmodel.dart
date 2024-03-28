@@ -27,11 +27,26 @@ class DashboardViewmodel extends ViewModel<DashboardState> {
       (l) => ErrorDashboardState(errorMessage: l.message),
       (studio) {
         return studio != null
-            ? SuccessDashboardState(studio: studio)
+            ? DashboardCustomersState(
+                studio: studio,
+              )
             : const InexistentStudioState();
       },
     );
     emit(newState);
+  }
+
+  void changeSection(DashboardSection section) {
+    if (section == DashboardSection.customers) {
+      emit(DashboardCustomersState(
+        studio: (state as LoggedDashboardState).studio,
+      ));
+    }
+    if (section == DashboardSection.schedule) {
+      emit(DashboardScheduleState(
+        studio: (state as LoggedDashboardState).studio,
+      ));
+    }
   }
 
   void logout() async {
@@ -60,7 +75,9 @@ class DashboardViewmodel extends ViewModel<DashboardState> {
       (l) => ErrorDashboardState(errorMessage: l.message),
       (r) => r == null
           ? const InexistentStudioState()
-          : SuccessDashboardState(studio: r),
+          : DashboardCustomersState(
+              studio: r,
+            ),
     );
     emit(newState);
   }

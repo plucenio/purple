@@ -62,7 +62,7 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: (state is LoadingCreateAccountState)
+                    child: (state is LoadingLoginState)
                         ? const Center(
                             child: CircularProgressIndicator(),
                           )

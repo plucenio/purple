@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 import '../../../../lib.dart';
 
+class ActionMenu {
+  final String text;
+  final Icon icon;
+  final Function() onPressed;
+
+  const ActionMenu({
+    required this.text,
+    required this.icon,
+    required this.onPressed,
+  });
+}
+
 class DashboardStructure extends StatefulWidget {
-  final bool showMenu;
   final Widget child;
+  final List<ActionMenu> actions;
   const DashboardStructure({
     super.key,
-    this.showMenu = true,
     required this.child,
+    this.actions = const [],
   });
 
   @override
@@ -19,11 +31,11 @@ class _DashboardStructureState extends State<DashboardStructure> {
 
   Widget get menu => Container(
         color: context.theme.colorScheme.primaryContainer,
-        child: widget.showMenu
+        child: widget.actions.isNotEmpty
             ? AnimatedSize(
                 duration: const Duration(milliseconds: 200),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     IconButton(
                       onPressed: () {
@@ -41,47 +53,18 @@ class _DashboardStructureState extends State<DashboardStructure> {
                             : CrossFadeState.showSecond,
                       ),
                     ),
-                    ButtonMenu(
-                      text: expanded ? 'Pacientes' : null,
-                      icon: const Icon(Icons.people),
-                      tooltipMessage: 'Pacientes',
-                      onPressed: () {},
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ButtonMenu(
-                      text: expanded ? 'Evoluções' : null,
-                      tooltipMessage: 'Evoluções',
-                      icon: const Icon(Icons.file_open),
-                      onPressed: () {},
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ButtonMenu(
-                      text: expanded ? 'Agenda' : null,
-                      tooltipMessage: 'Agenda',
-                      icon: const Icon(Icons.calendar_month),
-                      onPressed: () {},
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ButtonMenu(
-                      text: expanded ? 'Financeiro' : null,
-                      tooltipMessage: 'Financeiro',
-                      icon: const Icon(Icons.monetization_on),
-                      onPressed: () {},
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ButtonMenu(
-                      text: expanded ? 'Configurações' : null,
-                      tooltipMessage: 'Configurações',
-                      icon: const Icon(Icons.settings),
-                      onPressed: () {},
+                    ...widget.actions.map(
+                      (item) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 5.0),
+                          child: ButtonMenu(
+                            text: expanded ? item.text : null,
+                            icon: item.icon,
+                            tooltipMessage: item.text,
+                            onPressed: () => item.onPressed(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -98,10 +81,7 @@ class _DashboardStructureState extends State<DashboardStructure> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                AnimatedSize(
-                  duration: const Duration(milliseconds: 200),
-                  child: menu,
-                ),
+                menu,
                 Expanded(
                   flex: 10,
                   child: Padding(

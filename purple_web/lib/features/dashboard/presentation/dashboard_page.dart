@@ -62,7 +62,6 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
             ? const Center(child: CircularProgressIndicator())
             : (state is InexistentStudioState)
                 ? DashboardStructure(
-                    showMenu: false,
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 20.0, right: 20.0, bottom: 100),
@@ -239,8 +238,42 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                       ),
                     ),
                   )
-                : const DashboardStructure(
-                    child: SchedulePage(),
+                : DashboardStructure(
+                    actions: [
+                      ActionMenu(
+                          text: 'Pacientes',
+                          icon: const Icon(Icons.people),
+                          onPressed: () {
+                            viewModel.changeSection(DashboardSection.customers);
+                          }),
+                      ActionMenu(
+                          text: 'Evoluções',
+                          icon: const Icon(Icons.file_open),
+                          onPressed: () {
+                            viewModel.changeSection(DashboardSection.customers);
+                          }),
+                      ActionMenu(
+                          text: 'Agenda',
+                          icon: const Icon(Icons.calendar_month),
+                          onPressed: () {
+                            viewModel.changeSection(DashboardSection.schedule);
+                          }),
+                      ActionMenu(
+                          text: 'Financeiro',
+                          icon: const Icon(Icons.monetization_on),
+                          onPressed: () {
+                            viewModel.changeSection(DashboardSection.customers);
+                          }),
+                      ActionMenu(
+                          text: 'Configurações',
+                          icon: const Icon(Icons.settings),
+                          onPressed: () {
+                            viewModel.changeSection(DashboardSection.customers);
+                          }),
+                    ],
+                    child: (state is DashboardCustomersState)
+                        ? Container()
+                        : const SchedulePage(),
                   ),
       ),
     );

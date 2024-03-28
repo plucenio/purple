@@ -1,17 +1,36 @@
 import '../../../lib.dart';
 import '../dashboard.dart';
 
+enum DashboardSection {
+  customers,
+  schedule,
+}
+
 class DashboardState extends ViewModelState {
   const DashboardState();
+}
+
+abstract class LoggedDashboardState extends DashboardState {
+  final Studio studio;
+  const LoggedDashboardState({
+    required this.studio,
+  });
 }
 
 class LoadingDashboardState extends DashboardState {
   const LoadingDashboardState();
 }
 
-class SuccessDashboardState extends DashboardState {
-  final Studio studio;
-  const SuccessDashboardState({required this.studio});
+class DashboardCustomersState extends LoggedDashboardState {
+  const DashboardCustomersState({
+    required super.studio,
+  });
+}
+
+class DashboardScheduleState extends LoggedDashboardState {
+  const DashboardScheduleState({
+    required super.studio,
+  });
 }
 
 class InexistentStudioState extends DashboardState {

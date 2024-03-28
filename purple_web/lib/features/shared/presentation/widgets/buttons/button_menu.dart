@@ -31,15 +31,6 @@ class ButtonMenuState extends State<ButtonMenu> {
             : TextButton.icon(
                 icon: widget.icon,
                 onPressed: widget.onPressed,
-                style: ButtonStyle(
-                  shape: MaterialStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        0,
-                      ),
-                    ),
-                  ),
-                ),
                 label: Text(
                   widget.text!,
                   style: context.theme.textTheme.bodyLarge!.copyWith(
