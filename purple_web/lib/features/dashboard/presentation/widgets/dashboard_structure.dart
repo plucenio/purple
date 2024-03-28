@@ -77,6 +77,7 @@ class _DashboardStructureState extends State<DashboardStructure> {
     return Column(
       children: [
         Expanded(
+          flex: 20,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -102,9 +103,20 @@ class _DashboardStructureState extends State<DashboardStructure> {
             ),
           ),
         ),
-        Container(
-          height: 60.0,
-          color: Colors.purple.shade200,
+        Flexible(
+          flex: 1,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[
+                  Colors.purple.shade200,
+                  Colors.blue.shade200,
+                ],
+              ),
+            ),
+          ),
         )
       ],
     );

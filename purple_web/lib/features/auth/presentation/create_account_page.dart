@@ -32,6 +32,19 @@ class _CreateAccountPageState
     return Scaffold(
       appBar: AppBar(
         title: const Text(APP_NAME),
+        toolbarHeight: 90.0,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: <Color>[
+                Colors.purple,
+                Colors.blue,
+              ],
+            ),
+          ),
+        ),
       ),
       body: Row(
         children: [
@@ -41,8 +54,15 @@ class _CreateAccountPageState
               padding: const EdgeInsets.all(20.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: context.theme.highlightColor.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(10),
+                  gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[
+                      Colors.purple.withOpacity(0.3),
+                      Colors.blue.withOpacity(0.3),
+                    ],
+                  ),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),

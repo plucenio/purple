@@ -46,6 +46,17 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
       builder: (context, state) => Scaffold(
         appBar: AppBar(
           title: const Text(APP_NAME),
+          toolbarHeight: 90.0,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: <Color>[
+                  Colors.purple,
+                  Colors.blue,
+                ])),
+          ),
           actions: [
             IconButton(
               onPressed: () async {
