@@ -39,8 +39,8 @@ class _CreateAccountPageState
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
               colors: <Color>[
-                Colors.purple,
-                Colors.blue,
+                AppColor.PRIMARY,
+                AppColor.SECONDARY,
               ],
             ),
           ),
@@ -59,8 +59,8 @@ class _CreateAccountPageState
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: <Color>[
-                      Colors.purple.withOpacity(0.3),
-                      Colors.blue.withOpacity(0.3),
+                      AppColor.PRIMARY.withOpacity(0.3),
+                      AppColor.SECONDARY.withOpacity(0.3),
                     ],
                   ),
                 ),

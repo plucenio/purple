@@ -17,51 +17,51 @@ class AppWidget extends StatelessWidget {
         title: APP_NAME,
         theme: ThemeData(
           textTheme: TextTheme(
-            bodyLarge: GoogleFonts.catamaran(
+            bodyLarge: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            bodyMedium: GoogleFonts.catamaran(
+            bodyMedium: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            bodySmall: GoogleFonts.catamaran(
+            bodySmall: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            labelLarge: GoogleFonts.catamaran(
+            labelLarge: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            labelMedium: GoogleFonts.catamaran(
+            labelMedium: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            labelSmall: GoogleFonts.catamaran(
+            labelSmall: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            headlineLarge: GoogleFonts.catamaran(
+            headlineLarge: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            headlineMedium: GoogleFonts.catamaran(
+            headlineMedium: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            headlineSmall: GoogleFonts.catamaran(
+            headlineSmall: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            titleLarge: GoogleFonts.catamaran(
+            titleLarge: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            titleMedium: GoogleFonts.catamaran(
+            titleMedium: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
-            titleSmall: GoogleFonts.catamaran(
+            titleSmall: GoogleFonts.hedvigLettersSans(
               color: AppColor.TEXT_COLOR,
             ),
           ),
           brightness: Brightness.light,
-          fontFamily: GoogleFonts.catamaran(
+          fontFamily: GoogleFonts.hedvigLettersSans(
             color: AppColor.TEXT_COLOR,
           ).fontFamily,
           appBarTheme: AppBarTheme(
             centerTitle: false,
             backgroundColor: AppColor.PRIMARY,
-            titleTextStyle: GoogleFonts.catamaran(
+            titleTextStyle: GoogleFonts.hedvigLettersSans(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: AppColor.INVERTED_TEXT_COLOR,
@@ -74,7 +74,7 @@ class AppWidget extends StatelessWidget {
               iconColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
               foregroundColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
               textStyle: MaterialStateProperty.all(
-                GoogleFonts.catamaran(),
+                GoogleFonts.hedvigLettersSans(),
               ),
             ),
           ),
@@ -87,7 +87,7 @@ class AppWidget extends StatelessWidget {
                   foregroundColor:
                       MaterialStateProperty.all(AppColor.TEXT_COLOR),
                   textStyle: MaterialStateProperty.all(
-                    GoogleFonts.catamaran(
+                    GoogleFonts.hedvigLettersSans(
                       color: AppColor.TEXT_COLOR,
                     ),
                   ))),
@@ -95,12 +95,12 @@ class AppWidget extends StatelessWidget {
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all(AppColor.TEXT_COLOR),
               textStyle: MaterialStateProperty.all(
-                GoogleFonts.catamaran(),
+                GoogleFonts.hedvigLettersSans(),
               ),
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(
-            labelStyle: GoogleFonts.catamaran(),
+            labelStyle: GoogleFonts.hedvigLettersSans(),
           ),
           cardTheme: const CardTheme(color: AppColor.BODY_COLOR),
           primaryColor: AppColor.PRIMARY,

@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 import '../../../../lib.dart';
 
 class PurpleAppBar extends AppBar {
-  final Widget? logo;
-
   PurpleAppBar({
     super.key,
-    this.logo,
     super.actions,
   }) : super(
-          title: logo ?? const PurpleLogo(),
+          title: const Row(
+            children: [
+              PurpleLogo(
+                size: 30,
+              ),
+              SizedBox(width: 10),
+              PurpleLogotype(),
+            ],
+          ),
           toolbarHeight: 90.0,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -18,8 +23,9 @@ class PurpleAppBar extends AppBar {
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: <Color>[
-                  Colors.purple,
-                  Colors.blue,
+                  AppColor.BODY_COLOR,
+                  AppColor.SECONDARY,
+                  AppColor.PRIMARY,
                 ])),
           ),
         );

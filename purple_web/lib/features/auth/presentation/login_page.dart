@@ -50,26 +50,57 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Text(
-                            'Em um mundo cada vez mais digital e dinâmico, a eficiência e organização são essenciais para o sucesso de qualquer empreendimento. É com grande entusiasmo que apresentamos Purple, o novo software desenvolvido para simplificar e otimizar a gestão de estúdios de fitness de todas as modalidades. ',
-                            style: context.theme.textTheme.bodyMedium),
-                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'Em um mundo cada vez mais digital e dinâmico, a eficiência e organização são essenciais para o sucesso de qualquer empreendimento. É com grande entusiasmo que apresentamos Purple, o novo software desenvolvido para simplificar e otimizar a gestão de estúdios de fitness de todas as modalidades. ',
+                                style: context.theme.textTheme.bodyMedium,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 50,
+                            ),
+                            const PurpleLogo(
+                              size: 100,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 50),
                         Text(
                             'Gerenciamento Simplificado de Agendamentos e Reservas',
                             style: context.theme.textTheme.titleLarge!
                                 .copyWith(fontWeight: FontWeight.bold)),
-                        const SizedBox(height: 10),
-                        Text(
-                            'Esqueça as antigas planilhas de agendamento e a confusão na marcação de horários. Com o Purple, você terá à sua disposição uma interface intuitiva e fácil de usar, que permite criar e gerenciar facilmente a agenda de aulas, sessões individuais e eventos especiais. Com atualizações em tempo real e lembretes automáticos, tanto os instrutores quanto os clientes terão uma experiência de agendamento simples e eficaz.',
-                            style: context.theme.textTheme.bodyMedium),
-                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                  'Esqueça as antigas planilhas de agendamento e a confusão na marcação de horários. Com o Purple, você terá à sua disposição uma interface intuitiva e fácil de usar, que permite criar e gerenciar facilmente a agenda de aulas, sessões individuais e eventos especiais. Com atualizações em tempo real e lembretes automáticos, tanto os instrutores quanto os clientes terão uma experiência de agendamento simples e eficaz.',
+                                  style: context.theme.textTheme.bodyMedium),
+                            ),
+                            const SizedBox(
+                              width: 50,
+                            ),
+                            const PurpleLogo(size: 100),
+                          ],
+                        ),
+                        const SizedBox(height: 50),
                         Text('Análises Detalhadas de Desempenho',
                             style: context.theme.textTheme.titleLarge!
                                 .copyWith(fontWeight: FontWeight.bold)),
-                        const SizedBox(height: 10),
-                        Text(
-                            'Com o Purple, você terá acesso a análises detalhadas sobre o desempenho do seu estúdio, desde a frequência de clientes até a taxa de ocupação das aulas. Essas informações valiosas ajudarão você a identificar tendências, identificar áreas de melhoria e tomar decisões estratégicas para impulsionar o crescimento do seu negócio.',
-                            style: context.theme.textTheme.bodyMedium),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                  'Com o Purple, você terá acesso a análises detalhadas sobre o desempenho do seu estúdio, desde a frequência de clientes até a taxa de ocupação das aulas. Essas informações valiosas ajudarão você a identificar tendências, identificar áreas de melhoria e tomar decisões estratégicas para impulsionar o crescimento do seu negócio.',
+                                  style: context.theme.textTheme.bodyMedium),
+                            ),
+                            const SizedBox(
+                              width: 50,
+                            ),
+                            const PurpleLogo(size: 100),
+                          ],
+                        ),
                         const SizedBox(height: 20),
                       ],
                     ),
@@ -100,8 +131,8 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: <Color>[
-                                Colors.purple.withOpacity(0.3),
-                                Colors.blue.withOpacity(0.3),
+                                AppColor.PRIMARY.withOpacity(0.3),
+                                AppColor.SECONDARY.withOpacity(0.3),
                               ]),
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -215,8 +246,9 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: <Color>[
-                    Colors.purple.shade200,
-                    Colors.blue.shade200,
+                    AppColor.BODY_COLOR.withOpacity(0.3),
+                    AppColor.SECONDARY.withOpacity(0.3),
+                    AppColor.PRIMARY.withOpacity(0.3),
                   ],
                 ),
               ),
