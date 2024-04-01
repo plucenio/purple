@@ -20,7 +20,7 @@ class PurpleLogo extends StatelessWidget {
               shape: BoxShape.circle),
         ),
         Container(
-          transform: Matrix4.translationValues(size / 5, size / 5, 0),
+          transform: Matrix4.translationValues(size / 7, size / 7, 0),
           height: size,
           width: size,
           decoration: BoxDecoration(
