@@ -1,12 +1,13 @@
+// ignore_for_file: non_constant_identifier_names
 // ignore_for_file: constant_identifier_names
 import 'package:flutter/material.dart';
 
 class AppColor {
-  static const BG_COLOR = Colors.white70;
+  static Color BG_COLOR = Colors.grey[200]!;
   static const PRIMARY = Colors.purple;
   static const SECONDARY = Colors.purpleAccent;
 
-  static const TEXT_COLOR = Colors.black54;
+  static Color TEXT_COLOR = Colors.purple[800]!;
   static const BODY_COLOR = Colors.white70;
 
   static const INVERTED_TEXT_COLOR = Colors.white70;

@@ -16,6 +16,44 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: APP_NAME,
         theme: ThemeData(
+          textTheme: TextTheme(
+            bodyLarge: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            bodyMedium: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            bodySmall: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            labelLarge: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            labelMedium: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            labelSmall: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            headlineLarge: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            headlineMedium: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            headlineSmall: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            titleLarge: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            titleMedium: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+            titleSmall: GoogleFonts.catamaran(
+              color: AppColor.TEXT_COLOR,
+            ),
+          ),
           brightness: Brightness.light,
           fontFamily: GoogleFonts.catamaran(
             color: AppColor.TEXT_COLOR,
@@ -40,7 +78,7 @@ class AppWidget extends StatelessWidget {
               ),
             ),
           ),
-          iconTheme: const IconThemeData(
+          iconTheme: IconThemeData(
             color: AppColor.TEXT_COLOR,
           ),
           iconButtonTheme: IconButtonThemeData(
