@@ -38,10 +38,9 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                   flex: 2,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: ListView(
                       children: [
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 50),
                         Text(
                           'Purple gestão de studios',
                           style:
@@ -51,56 +50,51 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                         ),
                         const SizedBox(height: 10),
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
-                              child: Text(
-                                'Em um mundo cada vez mais digital e dinâmico, a eficiência e organização são essenciais para o sucesso de qualquer empreendimento. É com grande entusiasmo que apresentamos Purple, o novo software desenvolvido para simplificar e otimizar a gestão de estúdios de fitness de todas as modalidades. ',
-                                style: context.theme.textTheme.bodyMedium,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'Em um mundo cada vez mais digital e dinâmico, a eficiência e organização são essenciais para o sucesso de qualquer empreendimento. É com grande entusiasmo que apresentamos Purple, o novo software desenvolvido para simplificar e otimizar a gestão de estúdios de fitness de todas as modalidades. ',
+                                    style: context.theme.textTheme.bodyMedium,
+                                  ),
+                                  const SizedBox(height: 50),
+                                  Text(
+                                      'Gerenciamento Simplificado de Agendamentos e Reservas',
+                                      style: context.theme.textTheme.titleLarge!
+                                          .copyWith(
+                                              fontWeight: FontWeight.bold)),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                      'Esqueça as antigas planilhas de agendamento e a confusão na marcação de horários. Com o Purple, você terá à sua disposição uma interface intuitiva e fácil de usar, que permite criar e gerenciar facilmente a agenda de aulas, sessões individuais e eventos especiais. Com atualizações em tempo real e lembretes automáticos, tanto os instrutores quanto os clientes terão uma experiência de agendamento simples e eficaz.',
+                                      style:
+                                          context.theme.textTheme.bodyMedium),
+                                ],
                               ),
                             ),
                             const SizedBox(
                               width: 50,
                             ),
-                            const PurpleLogo(
-                              size: 100,
+                            Stack(
+                              children: [
+                                const PurpleLogo(
+                                  size: 300,
+                                ),
+                                Image.asset('assets/amanda.png',
+                                    height: 400, width: 400),
+                              ],
                             ),
-                          ],
-                        ),
-                        const SizedBox(height: 50),
-                        Text(
-                            'Gerenciamento Simplificado de Agendamentos e Reservas',
-                            style: context.theme.textTheme.titleLarge!
-                                .copyWith(fontWeight: FontWeight.bold)),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                  'Esqueça as antigas planilhas de agendamento e a confusão na marcação de horários. Com o Purple, você terá à sua disposição uma interface intuitiva e fácil de usar, que permite criar e gerenciar facilmente a agenda de aulas, sessões individuais e eventos especiais. Com atualizações em tempo real e lembretes automáticos, tanto os instrutores quanto os clientes terão uma experiência de agendamento simples e eficaz.',
-                                  style: context.theme.textTheme.bodyMedium),
-                            ),
-                            const SizedBox(
-                              width: 50,
-                            ),
-                            const PurpleLogo(size: 100),
                           ],
                         ),
                         const SizedBox(height: 50),
                         Text('Análises Detalhadas de Desempenho',
                             style: context.theme.textTheme.titleLarge!
                                 .copyWith(fontWeight: FontWeight.bold)),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                  'Com o Purple, você terá acesso a análises detalhadas sobre o desempenho do seu estúdio, desde a frequência de clientes até a taxa de ocupação das aulas. Essas informações valiosas ajudarão você a identificar tendências, identificar áreas de melhoria e tomar decisões estratégicas para impulsionar o crescimento do seu negócio.',
-                                  style: context.theme.textTheme.bodyMedium),
-                            ),
-                            const SizedBox(
-                              width: 50,
-                            ),
-                            const PurpleLogo(size: 100),
-                          ],
-                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                            'Com o Purple, você terá acesso a análises detalhadas sobre o desempenho do seu estúdio, desde a frequência de clientes até a taxa de ocupação das aulas. Essas informações valiosas ajudarão você a identificar tendências, identificar áreas de melhoria e tomar decisões estratégicas para impulsionar o crescimento do seu negócio.',
+                            style: context.theme.textTheme.bodyMedium),
                         const SizedBox(height: 20),
                       ],
                     ),

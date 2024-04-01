@@ -11,8 +11,9 @@ class PurpleAppBar extends AppBar {
             children: [
               PurpleLogo(
                 size: 30,
+                withBlur: true,
               ),
-              SizedBox(width: 10),
+              SizedBox(width: 15),
               PurpleLogotype(),
             ],
           ),
