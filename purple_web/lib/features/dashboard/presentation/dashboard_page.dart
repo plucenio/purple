@@ -256,12 +256,13 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                           onPressed: () {
                             viewModel.changeSection(DashboardSection.schedule);
                           }),
-                      ActionMenu(
-                          text: 'Financeiro',
-                          icon: const Icon(Icons.monetization_on),
-                          onPressed: () {
-                            viewModel.changeSection(DashboardSection.customers);
-                          }),
+                      //TODO: It will be implemented in a second version.
+                      //ActionMenu(
+                      //    text: 'Financeiro',
+                      //    icon: const Icon(Icons.monetization_on),
+                      //    onPressed: () {
+                      //      viewModel.changeSection(DashboardSection.customers);
+                      //    }),
                       ActionMenu(
                           text: 'Configurações',
                           icon: const Icon(Icons.settings),
