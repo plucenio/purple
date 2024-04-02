@@ -1,6 +1,4 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-
 import '../../../lib.dart';
 import '../auth.dart';
 
@@ -125,7 +123,8 @@ class _CreateAccountPageState
                                     ),
                                   ),
                                   validator: (String? value) {
-                                    return !EmailValidator.validate(value ?? '')
+                                    return !EmailValidatorAdapter.validate(
+                                            value ?? '')
                                         ? 'Email inválido'
                                         : null;
                                   },

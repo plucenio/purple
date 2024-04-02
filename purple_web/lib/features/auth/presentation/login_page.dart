@@ -1,4 +1,3 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:purple_web/lib.dart';
 
@@ -160,8 +159,8 @@ class _LoginPageState extends ViewState<LoginPage, LoginViewmodel> {
                                           ),
                                         ),
                                         validator: (String? value) {
-                                          return !EmailValidator.validate(
-                                                  value ?? '')
+                                          return !EmailValidatorAdapter
+                                                  .validate(value ?? '')
                                               ? 'Email inválido'
                                               : null;
                                         },

@@ -112,6 +112,7 @@ class _DashboardStructureState extends State<DashboardStructure> {
                 end: Alignment.centerRight,
                 colors: <Color>[
                   AppColor.BODY_COLOR,
+                  AppColor.SECONDARY.shade200,
                   AppColor.PRIMARY.shade200,
                 ],
               ),

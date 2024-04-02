@@ -1,4 +1,3 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:purple_web/lib.dart';
 
@@ -124,7 +123,7 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                                       ),
                                     ),
                                     validator: (String? value) {
-                                      return !EmailValidator.validate(
+                                      return !EmailValidatorAdapter.validate(
                                               value ?? '')
                                           ? 'Email inválido'
                                           : null;
@@ -271,7 +270,7 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                           }),
                     ],
                     child: (state is DashboardCustomersState)
-                        ? Container()
+                        ? const CustomersPage()
                         : const SchedulePage(),
                   ),
       ),

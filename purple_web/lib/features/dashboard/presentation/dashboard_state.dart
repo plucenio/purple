@@ -37,9 +37,8 @@ class InexistentStudioState extends DashboardState {
   const InexistentStudioState();
 }
 
-class NewStudioCreatedState extends DashboardState {
-  final Studio studio;
-  const NewStudioCreatedState({required this.studio});
+class NewStudioCreatedState extends LoggedDashboardState {
+  const NewStudioCreatedState({required super.studio});
 }
 
 class LogoutState extends DashboardState {

@@ -1,5 +1,3 @@
-import 'package:purple_web/features/dashboard/domain/usecases/link_studio_usecase.dart';
-
 import '../../../lib.dart';
 import '../dashboard.dart';
 
@@ -41,11 +39,13 @@ class DashboardViewmodel extends ViewModel<DashboardState> {
       emit(DashboardCustomersState(
         studio: (state as LoggedDashboardState).studio,
       ));
+      return;
     }
     if (section == DashboardSection.schedule) {
       emit(DashboardScheduleState(
         studio: (state as LoggedDashboardState).studio,
       ));
+      return;
     }
   }
 
