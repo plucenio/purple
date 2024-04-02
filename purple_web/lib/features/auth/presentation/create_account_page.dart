@@ -28,22 +28,7 @@ class _CreateAccountPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(APP_NAME),
-        toolbarHeight: 90.0,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: <Color>[
-                AppColor.PRIMARY,
-                AppColor.SECONDARY,
-              ],
-            ),
-          ),
-        ),
-      ),
+      appBar: PurpleAppBar(),
       body: Row(
         children: [
           Flexible(child: Container()),
