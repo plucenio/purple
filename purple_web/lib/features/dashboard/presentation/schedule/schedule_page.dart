@@ -18,6 +18,12 @@ class _SchedulePageState extends State<SchedulePage> {
   Widget build(BuildContext context) {
     return Center(
       child: WeekView(
+        headerStyle: HeaderStyle(
+          headerTextStyle: context.theme.textTheme.titleMedium!
+              .copyWith(fontWeight: FontWeight.bold),
+        ),
+        showHalfHours: true,
+        heightPerMinute: 2,
         showWeekends: false,
         startHour: START_HOUR,
         //eventTileBuilder:
