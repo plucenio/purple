@@ -1,7 +1,7 @@
 import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../../lib.dart';
+import '../../../../lib.dart';
 
 // ignore: constant_identifier_names
 const int START_HOUR = 6;

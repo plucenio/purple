@@ -3,6 +3,7 @@ import '../dashboard.dart';
 
 enum DashboardSection {
   customers,
+  evaluations,
   schedule,
 }
 
@@ -23,6 +24,12 @@ class LoadingDashboardState extends DashboardState {
 
 class DashboardCustomersState extends LoggedDashboardState {
   const DashboardCustomersState({
+    required super.studio,
+  });
+}
+
+class DashboardEvaluationsState extends LoggedDashboardState {
+  const DashboardEvaluationsState({
     required super.studio,
   });
 }

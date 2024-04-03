@@ -47,6 +47,12 @@ class DashboardViewmodel extends ViewModel<DashboardState> {
       ));
       return;
     }
+    if (section == DashboardSection.evaluations) {
+      emit(DashboardEvaluationsState(
+        studio: (state as LoggedDashboardState).studio,
+      ));
+      return;
+    }
   }
 
   void logout() async {

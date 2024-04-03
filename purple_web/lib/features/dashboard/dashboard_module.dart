@@ -51,6 +51,12 @@ class DashboardModule extends Module {
     i.add<NewCustomerViewmodel>(
       () => NewCustomerViewmodel(),
     );
+    i.add<EvaluationsViewmodel>(
+      () => EvaluationsViewmodel(),
+    );
+    i.add<NewEvaluationViewmodel>(
+      () => NewEvaluationViewmodel(),
+    );
   }
 
   @override

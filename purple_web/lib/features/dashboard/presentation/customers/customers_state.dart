@@ -5,14 +5,14 @@ enum CustomersStateEnum {
   listCustomers,
 }
 
-class CustomerState extends ViewModelState {
-  const CustomerState();
+class CustomersState extends ViewModelState {
+  const CustomersState();
 }
 
-class AddNewCustomerState extends CustomerState {
-  const AddNewCustomerState();
+class AddNewCustomersState extends CustomersState {
+  const AddNewCustomersState();
 }
 
-class ListCustomersState extends CustomerState {
+class ListCustomersState extends CustomersState {
   const ListCustomersState();
 }

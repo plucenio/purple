@@ -74,7 +74,8 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                           text: 'Evoluções',
                           icon: const Icon(Icons.file_open),
                           onPressed: () {
-                            viewModel.changeSection(DashboardSection.customers);
+                            viewModel
+                                .changeSection(DashboardSection.evaluations);
                           }),
                       ActionMenu(
                           text: 'Agenda',
@@ -98,7 +99,9 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                     ],
                     child: (state is DashboardCustomersState)
                         ? const CustomersPage()
-                        : const SchedulePage(),
+                        : ((state is DashboardScheduleState)
+                            ? const SchedulePage()
+                            : const EvaluationsPage()),
                   ),
       ),
     );
