@@ -5,7 +5,13 @@ import '../../../../../lib.dart';
 class CustomButton extends StatefulWidget {
   final Widget child;
   final Function()? onPressed;
-  const CustomButton({super.key, required this.child, this.onPressed});
+  final Color? color;
+  const CustomButton({
+    super.key,
+    required this.child,
+    this.onPressed,
+    this.color,
+  });
 
   @override
   State<CustomButton> createState() => CustomButtonState();
@@ -22,7 +28,7 @@ class CustomButtonState extends State<CustomButton> {
             8,
           ))),
           backgroundColor: MaterialStateProperty.all(
-            AppColor.PRIMARY,
+            widget.color ?? AppColor.BG_COLOR,
           )),
       child: Center(
         child: widget.child,

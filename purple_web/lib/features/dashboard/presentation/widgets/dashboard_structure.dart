@@ -89,7 +89,10 @@ class _DashboardStructureState extends State<DashboardStructure> {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Container(
                       color: context.theme.colorScheme.primaryContainer,
-                      child: widget.child,
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 300),
+                        child: widget.child,
+                      ),
                     ),
                   ),
                 ),

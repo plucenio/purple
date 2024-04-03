@@ -1,18 +1,18 @@
 import '../../../../lib.dart';
 
-class CustomersState extends ViewModelState {
-  const CustomersState();
+enum CustomersStateEnum {
+  addNewCustomer,
+  listCustomers,
 }
 
-class LoadingCustomersState extends CustomersState {
-  const LoadingCustomersState();
+class CustomerState extends ViewModelState {
+  const CustomerState();
 }
 
-class SuccessCustomersState extends CustomersState {
-  const SuccessCustomersState();
+class AddNewCustomerState extends CustomerState {
+  const AddNewCustomerState();
 }
 
-class ErrorCustomersState extends CustomersState {
-  final String errorMessage;
-  const ErrorCustomersState({required this.errorMessage});
+class ListCustomersState extends CustomerState {
+  const ListCustomersState();
 }

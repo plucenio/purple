@@ -1,21 +1,16 @@
 import '../../../../lib.dart';
 import '../../dashboard.dart';
 
-class CustomersViewmodel extends ViewModel<CustomersState> {
-  //final ISaveCustomerUsecase usecase;
-  //CustomersViewmodel({required this.usecase}) : super(const CustomersState());
+class CustomerViewmodel extends ViewModel<CustomerState> {
+  CustomerViewmodel() : super(const ListCustomersState());
 
-  CustomersViewmodel() : super(const CustomersState());
-
-  void saveCustomer({required User user}) async {
-    //emit(const LoadingCustomersState());
-    //final loggedUser = await usecase.call(user: user);
-    //final newState = loggedUser.fold(
-    //    (l) => ErrorCustomersState(errorMessage: l.message),
-    //    (r) => r
-    //        ? const SuccessCustomersState()
-    //        : const ErrorCustomersState(
-    //            errorMessage: 'Erro ao salvar um novo paciente.'));
-    //emit(newState);
+  void changeState({required CustomersStateEnum state}) async {
+    if (state == CustomersStateEnum.addNewCustomer) {
+      emit(const AddNewCustomerState());
+      return;
+    }
+    if (state == CustomersStateEnum.listCustomers) {
+      emit(const ListCustomersState());
+    }
   }
 }

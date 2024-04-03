@@ -45,8 +45,11 @@ class DashboardModule extends Module {
         linkStudioUsecase: i.get<ILinkStudioUsecase>(),
       ),
     );
-    i.add<CustomersViewmodel>(
-      () => CustomersViewmodel(),
+    i.add<CustomerViewmodel>(
+      () => CustomerViewmodel(),
+    );
+    i.add<NewCustomerViewmodel>(
+      () => NewCustomerViewmodel(),
     );
   }
 
