@@ -100,7 +100,7 @@ class _DashboardPageState extends ViewState<DashboardPage, DashboardViewmodel> {
                     child: (state is DashboardCustomersState)
                         ? const CustomersPage()
                         : ((state is DashboardScheduleState)
-                            ? const SchedulePage()
+                            ? const ScheduleStructuresPage()
                             : const EvaluationsPage()),
                   ),
       ),

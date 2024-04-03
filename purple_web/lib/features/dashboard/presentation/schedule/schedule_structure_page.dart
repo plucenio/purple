@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../../lib.dart';
 import '../../dashboard.dart';
 
-class EvaluationsPage extends StatefulWidget {
-  const EvaluationsPage({super.key});
+class ScheduleStructuresPage extends StatefulWidget {
+  const ScheduleStructuresPage({super.key});
 
   @override
-  State<EvaluationsPage> createState() => _EvaluationsPageState();
+  State<ScheduleStructuresPage> createState() => _ScheduleStructuresPageState();
 }
 
-class _EvaluationsPageState
-    extends ViewState<EvaluationsPage, EvaluationsViewmodel> {
+class _ScheduleStructuresPageState
+    extends ViewState<ScheduleStructuresPage, ScheduleStructureViewmodel> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,26 +24,27 @@ class _EvaluationsPageState
               flex: 1,
               child: Row(children: [
                 CustomSelectedButton(
-                  isSelected: (state is ListEvaluationsState),
+                  isSelected: (state is ScheduleState),
                   child: Text(
-                    'Listar todas',
+                    'Agenda',
                     style: context.theme.textTheme.bodyMedium,
                   ),
                   onPressed: () {
                     viewModel.changeState(
-                        state: EvaluationsStateEnum.listEvaluations);
+                        state: ScheduleStructureStateEnum.schedule);
                   },
                 ),
                 const SizedBox(width: 10),
                 CustomSelectedButton(
-                  isSelected: (state is AddNewEvaluationState),
+                  isSelected: (state is AddNewScheduleStructureState),
                   child: Text(
-                    'Nova avaliação',
+                    'Novo agendamento',
                     style: context.theme.textTheme.bodyMedium,
                   ),
                   onPressed: () {
                     viewModel.changeState(
-                        state: EvaluationsStateEnum.addNewEvaluation);
+                        state:
+                            ScheduleStructureStateEnum.addNewScheduleStructure);
                   },
                 ),
               ]),
@@ -52,9 +53,9 @@ class _EvaluationsPageState
               flex: 9,
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 300),
-                child: (state is ListEvaluationsState)
-                    ? Container()
-                    : const NewEvaluationPage(),
+                child: (state is ScheduleState)
+                    ? const SchedulePage()
+                    : Container(),
               ),
             ),
           ],

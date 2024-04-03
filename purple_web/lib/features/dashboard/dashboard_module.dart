@@ -57,6 +57,9 @@ class DashboardModule extends Module {
     i.add<NewEvaluationViewmodel>(
       () => NewEvaluationViewmodel(),
     );
+    i.add<ScheduleStructureViewmodel>(
+      () => ScheduleStructureViewmodel(),
+    );
   }
 
   @override

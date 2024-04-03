@@ -22,9 +22,8 @@ class _CustomersPageState extends ViewState<CustomersPage, CustomerViewmodel> {
             Flexible(
               flex: 1,
               child: Row(children: [
-                CustomButton(
-                  color:
-                      (state is ListCustomersState) ? AppColor.SECONDARY : null,
+                CustomSelectedButton(
+                  isSelected: (state is ListCustomersState),
                   child: Text(
                     'Listar todos',
                     style: context.theme.textTheme.bodyMedium,
@@ -35,10 +34,8 @@ class _CustomersPageState extends ViewState<CustomersPage, CustomerViewmodel> {
                   },
                 ),
                 const SizedBox(width: 10),
-                CustomButton(
-                  color: (state is AddNewCustomersState)
-                      ? AppColor.SECONDARY
-                      : null,
+                CustomSelectedButton(
+                  isSelected: (state is AddNewCustomersState),
                   child: Text(
                     'Novo',
                     style: context.theme.textTheme.bodyMedium,
