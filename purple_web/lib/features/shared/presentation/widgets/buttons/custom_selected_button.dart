@@ -11,7 +11,7 @@ class CustomSelectedButton extends CustomButton {
     this.isSelected = false,
     super.onPressed,
   }) : super(
-          color: isSelected ? AppColor.SECONDARY : null,
+          elevation: isSelected ? 5 : null,
         );
 
   @override

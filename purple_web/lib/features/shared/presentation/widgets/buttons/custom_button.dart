@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../lib.dart';
-
 class CustomButton extends StatefulWidget {
   final Widget child;
   final Function()? onPressed;
-  final Color? color;
+  final double? elevation;
   const CustomButton({
     super.key,
     required this.child,
     this.onPressed,
-    this.color,
+    this.elevation,
   });
 
   @override
@@ -23,13 +21,8 @@ class CustomButtonState extends State<CustomButton> {
     return ElevatedButton(
       onPressed: widget.onPressed,
       style: ButtonStyle(
-          shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-            8,
-          ))),
-          backgroundColor: MaterialStateProperty.all(
-            widget.color ?? AppColor.BG_COLOR,
-          )),
+        elevation: MaterialStateProperty.all<double>(widget.elevation ?? 0),
+      ),
       child: Center(
         child: widget.child,
       ),

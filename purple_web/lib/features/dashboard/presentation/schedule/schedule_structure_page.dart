@@ -14,13 +14,13 @@ class _ScheduleStructuresPageState
     extends ViewState<ScheduleStructuresPage, ScheduleStructureViewmodel> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: ViewModelBuilder(
-        viewModel: viewModel,
-        builder: (context, state) => Column(
-          children: [
-            Flexible(
+    return ViewModelBuilder(
+      viewModel: viewModel,
+      builder: (context, state) => Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Flexible(
               flex: 1,
               child: Row(children: [
                 CustomSelectedButton(
@@ -49,17 +49,16 @@ class _ScheduleStructuresPageState
                 ),
               ]),
             ),
-            Flexible(
-              flex: 9,
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: (state is ScheduleState)
-                    ? const SchedulePage()
-                    : Container(),
-              ),
+          ),
+          Flexible(
+            flex: 9,
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child:
+                  (state is ScheduleState) ? const SchedulePage() : Container(),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

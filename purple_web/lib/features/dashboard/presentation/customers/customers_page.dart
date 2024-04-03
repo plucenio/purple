@@ -13,13 +13,13 @@ class CustomersPage extends StatefulWidget {
 class _CustomersPageState extends ViewState<CustomersPage, CustomerViewmodel> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: ViewModelBuilder(
-        viewModel: viewModel,
-        builder: (context, state) => Column(
-          children: [
-            Flexible(
+    return ViewModelBuilder(
+      viewModel: viewModel,
+      builder: (context, state) => Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Flexible(
               flex: 1,
               child: Row(children: [
                 CustomSelectedButton(
@@ -47,8 +47,11 @@ class _CustomersPageState extends ViewState<CustomersPage, CustomerViewmodel> {
                 ),
               ]),
             ),
-            Flexible(
-              flex: 9,
+          ),
+          Flexible(
+            flex: 9,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 300),
                 child: (state is ListCustomersState)
@@ -56,8 +59,8 @@ class _CustomersPageState extends ViewState<CustomersPage, CustomerViewmodel> {
                     : const NewCustomerPage(),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
