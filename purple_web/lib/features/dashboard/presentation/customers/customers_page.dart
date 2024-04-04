@@ -17,10 +17,9 @@ class _CustomersPageState extends ViewState<CustomersPage, CustomerViewmodel> {
       viewModel: viewModel,
       builder: (context, state) => Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Flexible(
-              flex: 1,
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
               child: Row(children: [
                 CustomSelectedButton(
                   isSelected: (state is ListCustomersState),

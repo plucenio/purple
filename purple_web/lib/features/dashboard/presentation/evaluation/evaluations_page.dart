@@ -18,35 +18,36 @@ class _EvaluationsPageState
       viewModel: viewModel,
       builder: (context, state) => Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Flexible(
-              flex: 1,
-              child: Row(children: [
-                CustomSelectedButton(
-                  isSelected: (state is ListEvaluationsState),
-                  child: Text(
-                    'Listar todas',
-                    style: context.theme.textTheme.bodyMedium,
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  CustomSelectedButton(
+                    isSelected: (state is ListEvaluationsState),
+                    child: Text(
+                      'Listar todas',
+                      style: context.theme.textTheme.bodyMedium,
+                    ),
+                    onPressed: () {
+                      viewModel.changeState(
+                          state: EvaluationsStateEnum.listEvaluations);
+                    },
                   ),
-                  onPressed: () {
-                    viewModel.changeState(
-                        state: EvaluationsStateEnum.listEvaluations);
-                  },
-                ),
-                const SizedBox(width: 10),
-                CustomSelectedButton(
-                  isSelected: (state is AddNewEvaluationState),
-                  child: Text(
-                    'Nova avaliação',
-                    style: context.theme.textTheme.bodyMedium,
+                  const SizedBox(width: 10),
+                  CustomSelectedButton(
+                    isSelected: (state is AddNewEvaluationState),
+                    child: Text(
+                      'Nova avaliação',
+                      style: context.theme.textTheme.bodyMedium,
+                    ),
+                    onPressed: () {
+                      viewModel.changeState(
+                          state: EvaluationsStateEnum.addNewEvaluation);
+                    },
                   ),
-                  onPressed: () {
-                    viewModel.changeState(
-                        state: EvaluationsStateEnum.addNewEvaluation);
-                  },
-                ),
-              ]),
+                ],
+              ),
             ),
           ),
           Flexible(
