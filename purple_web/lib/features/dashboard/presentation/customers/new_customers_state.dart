@@ -8,8 +8,8 @@ class LoadingCustomersState extends NewCustomerState {
   const LoadingCustomersState();
 }
 
-class SuccessCustomersState extends NewCustomerState {
-  const SuccessCustomersState();
+class SuccessNewCustomersState extends NewCustomerState {
+  const SuccessNewCustomersState();
 }
 
 class ErrorCustomersState extends NewCustomerState {

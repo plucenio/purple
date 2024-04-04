@@ -131,7 +131,6 @@ class _InexistentStudioPageState extends State<InexistentStudioPage> {
                       child: Text(
                         'Criar um novo Studio',
                         style: context.theme.textTheme.bodyLarge!.copyWith(
-                          color: AppColor.INVERTED_TEXT_COLOR,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -181,7 +180,6 @@ class _InexistentStudioPageState extends State<InexistentStudioPage> {
                     child: Text(
                       'Entrar com um Studio existente',
                       style: context.theme.textTheme.bodyLarge!.copyWith(
-                        color: AppColor.INVERTED_TEXT_COLOR,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
