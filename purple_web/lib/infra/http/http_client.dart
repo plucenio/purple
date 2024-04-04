@@ -28,9 +28,12 @@ class HttpClient implements IHttpClient {
     final String url, {
     final Map<String, dynamic>? queryParameters,
     final Options? options,
+    final bool authenticationMethod = false,
   }) async {
-    for (var interceptor in interceptors) {
-      await interceptor.onRequest(url, dio);
+    if (!authenticationMethod) {
+      for (var interceptor in interceptors) {
+        await interceptor.onRequest(url, dio);
+      }
     }
     final response = await dio.post<T>(
       url,

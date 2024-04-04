@@ -7,6 +7,7 @@ abstract class IHttpClient {
     final String url, {
     final Map<String, dynamic>? queryParameters,
     final Options? options,
+    final bool authenticationMethod = false,
   });
 
   ///

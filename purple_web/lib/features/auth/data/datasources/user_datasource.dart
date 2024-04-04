@@ -25,6 +25,7 @@ class UserDatasource implements IUserDatasource {
     final response = await httpClient.post(
       '/log-in',
       queryParameters: user.toJson(),
+      authenticationMethod: true,
     );
     return response.data['result']['sessionToken'];
   }
